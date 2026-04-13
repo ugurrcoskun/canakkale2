@@ -1,16 +1,16 @@
-name: Otobus Link Scraper
+name: Yemek Scraper
 
 on:
   schedule:
-    # Her gün 03:00 UTC = 06:00 TR (UTC+3)
-    - cron: "0 3 * * *"
+    # Her ayın 1'i 03:30 UTC = 06:30 TR (UTC+3)
+    - cron: "30 3 1 * *"
   workflow_dispatch: # Elle de tetiklenebilir
 
 permissions:
   contents: write
 
 jobs:
-  scrape-bus:
+  scrape-meal:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,13 +25,13 @@ jobs:
       - name: Bağımlılıkları kur
         run: pip install requests beautifulsoup4
 
-      - name: Otobüs scraper'ı çalıştır
-        run: python scraper.py --target bus
+      - name: Yemek scraper'ı çalıştır
+        run: python scraper.py --target meal
 
       - name: Değişiklik var mı kontrol et
         id: check
         run: |
-          if ! git diff --quiet -- data/links.json; then
+          if ! git diff --quiet -- data/yemek.json; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -40,6 +40,6 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/links.json
-          git commit -m "chore: otobüs linkleri güncellendi [$(date -u +'%Y-%m-%d')]"
+          git add data/yemek.json
+          git commit -m "chore: yemek verisi güncellendi [$(date -u +'%Y-%m-%d')]"
           git push
