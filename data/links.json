@@ -8,10 +8,15 @@
   "haftasonu": [
     {
       "label": "HAFTA SONU SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/4-NISAN-1.pdf"
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/25-NISAN-6.pdf"
     }
   ],
   "arefe": [],
   "bayram": [],
-  "diger": []
+  "diger": [
+    {
+      "label": "23 NİSAN GÜNÜ SEFER SAATLERİ",
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/23-NISAN-5.pdf"
+    }
+  ]
 }
