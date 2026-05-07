@@ -2,8 +2,8 @@ name: Yemek Scraper
 
 on:
   schedule:
-    # Her ayın 1'i 03:30 UTC = 06:30 TR (UTC+3)
-    - cron: "30 3 1 * *"
+    # Her ayın 1'i ile 7'si arası 03:30 UTC = 06:30 TR (UTC+3)
+    - cron: "30 3 1-7 * *"
   workflow_dispatch: # Elle de tetiklenebilir
 
 permissions:

@@ -254,6 +254,35 @@ def scrape_osem_menu() -> dict:
 
 
 def scrape_kyk_menu() -> dict:
+    # Check if we already have valid data for this month
+    today = datetime.now(ISTANBUL_TZ).date().isoformat()
+    current_month = today[:7]
+    try:
+        if os.path.exists("data/yemek.json"):
+            with open("data/yemek.json", "r", encoding="utf-8") as f:
+                existing = json.load(f)
+                kyk_data = existing.get("kyk", {})
+                existing_month = kyk_data.get("monthly", {}).get("yearMonth")
+                existing_days = kyk_data.get("monthly", {}).get("days", {})
+                
+                # Eğer bu aya ait veri varsa ve 15 günden fazlaysa (aylık liste tam çekilmişse)
+                if existing_month == current_month and len(existing_days) > 15:
+                    print("Bu ayin KYK verisi zaten kayitli, tekrar cekilmiyor.")
+                    # Mevcut veriyi sadece güncelleyip dön, network isteği atma
+                    selected = existing_days.get(today)
+                    if not selected and existing_days:
+                        selected = existing_days[sorted(existing_days.keys())[0]]
+                    if not selected:
+                        selected = {"date": "", "sabah": {"date": "", "items": [], "calories": ""}, "aksam": {"date": "", "items": [], "calories": ""}}
+                    
+                    # Mevcut veriyi döndürüyoruz
+                    kyk_data["date"] = selected.get("date", "")
+                    kyk_data["sabah"] = selected.get("sabah", {"date": "", "items": [], "calories": ""})
+                    kyk_data["aksam"] = selected.get("aksam", {"date": "", "items": [], "calories": ""})
+                    return kyk_data
+    except Exception as e:
+        print("Mevcut KYK verisi kontrol edilirken hata:", e)
+
     def read_meal_from_soup(soup: BeautifulSoup, meal_id: str) -> dict:
         meal_card = soup.select_one(f"article#{meal_id}-card")
         meal_menu = soup.select_one(f"#{meal_id}-menu")
@@ -279,7 +308,92 @@ def scrape_kyk_menu() -> dict:
 
     monthly_days = {}
     today = datetime.now(ISTANBUL_TZ).date().isoformat()
+    
+    fallback_urls = [
+        KYK_URL,
+        "https://kykyemek.com/",
+        "https://kykyemekliste.com/"
+    ]
+    
+    # Try fetching from the primary URL first
+    # If the response contains "veri yok", we use fallback from kykyemek.com
+    
+    try:
+        html = fetch_html("https://kykyemek.com/")
+        soup = BeautifulSoup(html, "html.parser")
+        
+        # 1. Parse kykyemek.com globally
+        # We know breakfast is followed by "Akşam Yemeği" div
+        sabah_data = {}
+        aksam_data = {}
+        
+        is_dinner = False
+        current_date_text = None
+        items = []
+        
+        # We look through all paragraphs and divs
+        for tag in soup.find_all(["p", "div"]):
+            text = tag.text.strip()
+            if not text: continue
+            
+            if "Akşam Yemeği" in text:
+                is_dinner = True
+                current_date_text = None
+                items = []
+                continue
+                
+            # Date check
+            is_date = False
+            for m in TR_MONTHS:
+                if m in text and "2026" in text:
+                    is_date = True
+                    break
+                    
+            if is_date and tag.name == "p":
+                if current_date_text:
+                    if is_dinner:
+                        aksam_data[current_date_text] = items
+                    else:
+                        sabah_data[current_date_text] = items
+                current_date_text = text
+                items = []
+            elif tag.name == "p":
+                if current_date_text and "kalori" not in text.lower() and len(text) > 2:
+                    if text not in items:  # avoid duplicates
+                        items.append(text)
+                elif current_date_text and "kalori" in text.lower():
+                    if is_dinner:
+                        aksam_data[current_date_text] = items
+                    else:
+                        sabah_data[current_date_text] = items
+                    current_date_text = None
+                    items = []
+        
+        # Convert fetched data to monthly_days format
+        for date_text, sabah_items in sabah_data.items():
+            parsed_iso = parse_tr_menu_date(date_text)
+            if not parsed_iso: continue
+            
+            aksam_items = aksam_data.get(date_text, [])
+            
+            monthly_days[parsed_iso] = {
+                "date": date_text,
+                "sabah": {
+                    "date": date_text,
+                    "items": sabah_items,
+                    "calories": ""
+                },
+                "aksam": {
+                    "date": date_text,
+                    "items": aksam_items,
+                    "calories": ""
+                }
+            }
+            
+    except Exception as e:
+        print("Fallback fetch error:", e)
 
+    # Use primary source yurtmenu.net per day to override if it actually has data
     for iso_date in current_month_dates():
         html = fetch_html(f"{KYK_URL}?date={iso_date}")
         soup = BeautifulSoup(html, "html.parser")
@@ -290,20 +404,26 @@ def scrape_kyk_menu() -> dict:
 
         breakfast = read_meal_from_soup(soup, "breakfast")
         dinner = read_meal_from_soup(soup, "dinner")
-
-        monthly_days[parsed_iso] = {
-            "date": date_text,
-            "sabah": {
+        
+        # Sadece "Veri yok" boşluğu değilse üzerine yaz
+        has_primary_data = False
+        if breakfast["items"] and "Veri yok" not in breakfast["items"][0]:
+            has_primary_data = True
+            
+        if has_primary_data:
+            monthly_days[parsed_iso] = {
                 "date": date_text,
-                "items": breakfast["items"],
-                "calories": breakfast["calories"],
-            },
-            "aksam": {
-                "date": date_text,
-                "items": dinner["items"],
-                "calories": dinner["calories"],
-            },
-        }
+                "sabah": {
+                    "date": date_text,
+                    "items": breakfast["items"],
+                    "calories": breakfast["calories"],
+                },
+                "aksam": {
+                    "date": date_text,
+                    "items": dinner["items"],
+                    "calories": dinner["calories"],
+                },
+            }
 
     selected = monthly_days.get(today)
     if selected is None and monthly_days:
