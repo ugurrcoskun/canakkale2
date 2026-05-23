@@ -8,10 +8,14 @@
   "haftasonu": [
     {
       "label": "HAFTA SONU SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/23-MAYIS-1.pdf"
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/23-MAYIS-2.pdf"
     }
   ],
   "arefe": [
+    {
+      "label": "26 MAYIS AREFE GÜNÜ TOPLU TAŞIMA SEFER SAATLERİ",
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/26-MAYIS-2.pdf"
+    },
     {
       "label": "AREFE GÜNÜ VE KURBAN BAYRAMI’NIN 1. GÜNÜ MEZARLIK TOPLU TAŞIMA SEFER SAATLERİ",
       "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/KABIRSTAN-SERVISI-1.pdf"
@@ -27,6 +31,10 @@
     {
       "label": "22/23/24 MAYIS OTOGAR KAMPÜS SEFER SAATLERİ",
       "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/OTOGAR-KAMPUS-2.pdf"
+    },
+    {
+      "label": "25 MAYIS GÜNÜ TOPLU TAŞIMA SEFER SAATLERİ",
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/25-MAYIS-5.pdf"
     }
   ]
 }
