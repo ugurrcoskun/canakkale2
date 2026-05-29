@@ -3,38 +3,24 @@
     {
       "label": "HAFTA İÇİ SEFER SAATLERİ",
       "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/20-MAYIS-14.pdf"
+    },
+    {
+      "label": "1 HAZİRAN İTİBARİYLE HAFTA İÇİ SEFER SAATLERİ",
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/1-HAZIRAN-1.pdf"
     }
   ],
   "haftasonu": [
     {
       "label": "HAFTA SONU SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/23-MAYIS-5.pdf"
-    },
-    {
-      "label": "31 MAYIS İTİBARİYLE HAFTA SONU TOPLU TAŞIMA SEFER SAATLERİ",
       "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/31-MAYIS-2.pdf"
     }
   ],
-  "arefe": [
-    {
-      "label": "26 MAYIS AREFE GÜNÜ TOPLU TAŞIMA SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/26-MAYIS-2.pdf"
-    },
-    {
-      "label": "AREFE GÜNÜ VE KURBAN BAYRAMI’NIN 1. GÜNÜ MEZARLIK TOPLU TAŞIMA SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/KABIRSTAN-SERVISI-1.pdf"
-    }
-  ],
+  "arefe": [],
   "bayram": [
     {
       "label": "KURBAN BAYRAMI TOPLU TAŞIMA SEFER SAATLERİ",
       "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/27-28-29-30-MAYIS-BAYRAM-1.pdf"
     }
   ],
-  "diger": [
-    {
-      "label": "25 MAYIS GÜNÜ TOPLU TAŞIMA SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/25-MAYIS-5.pdf"
-    }
-  ]
+  "diger": []
 }
