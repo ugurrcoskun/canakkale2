@@ -2,11 +2,7 @@
   "haftaici": [
     {
       "label": "HAFTA İÇİ SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/20-MAYIS-14.pdf"
-    },
-    {
-      "label": "1 HAZİRAN İTİBARİYLE HAFTA İÇİ SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/1-HAZIRAN-1.pdf"
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/1-HAZIRAN-2.pdf"
     }
   ],
   "haftasonu": [
@@ -16,11 +12,6 @@
     }
   ],
   "arefe": [],
-  "bayram": [
-    {
-      "label": "KURBAN BAYRAMI TOPLU TAŞIMA SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/27-28-29-30-MAYIS-BAYRAM-1.pdf"
-    }
-  ],
+  "bayram": [],
   "diger": []
 }
