@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-02T11:13:40.831379+03:00",
+  "generatedAt": "2026-06-03T11:34:09.787995+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
-    "date": "2 Haziran 2026, Salı",
+    "date": "3 Haziran 2026, Çarşamba",
     "items": [
-      "Buğday Çorba (131)",
-      "Fırın Tavuk But (383) Kızarmış Biber (6)",
-      "Tel Şeh.Pirinç Pilavı (345)",
-      "Kazandibi (387)"
+      "Ezogelin Çorba (203)",
+      "Macar Gulaş (323) Patates Püresi (127)",
+      "Arpa Şehriye Pilavı (360)",
+      "Cevizli Baklava (487)"
     ],
     "monthly": {
       "yearMonth": "2026-06",
@@ -197,20 +197,879 @@
   },
   "kyk": {
     "sourceUrl": "https://yurtmenu.net/canakkale",
-    "date": "",
+    "date": "Çarşamba, 3 Haziran 2026",
     "sabah": {
-      "date": "",
-      "items": [],
-      "calories": ""
+      "date": "Çarşamba, 3 Haziran 2026",
+      "items": [
+        "Peynirli Omlet",
+        "Çikolatalı Milföy Börek",
+        "Kaşar Peyniri",
+        "Siyah/Yeşil Zeytin",
+        "Mevsim Sebzeleri Söğüş",
+        "500 ml Su",
+        "Çeyrek Ekmek"
+      ],
+      "calories": "650-850 kcal"
     },
     "aksam": {
-      "date": "",
-      "items": [],
-      "calories": ""
+      "date": "Çarşamba, 3 Haziran 2026",
+      "items": [
+        "Ezogelin Çorba / Sebze Çorbası",
+        "Çökertme Kebabı/Izgara Tavuk+Garnitür / Yoğurtlu Yaz Kızartma",
+        "Domatesli Bulgur Pilavı",
+        "Tiramisu",
+        "500 ml Su",
+        "Çeyrek Ekmek"
+      ],
+      "calories": "1100-1500 kcal"
     },
     "monthly": {
       "yearMonth": "2026-06",
-      "days": {}
+      "days": {
+        "2026-06-01": {
+          "date": "Pazartesi, 1 Haziran 2026",
+          "sabah": {
+            "date": "Pazartesi, 1 Haziran 2026",
+            "items": [
+              "Sucuklu Yumurta",
+              "Dere Otlu Poğaça",
+              "Ezine Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Pazartesi, 1 Haziran 2026",
+            "items": [
+              "Mercimek Çorbası / Yayla Çorbası",
+              "Garnitürlü Tavuk Sarma / Bezelye Yemeği",
+              "Salçalı Makarna",
+              "Cacık",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-02": {
+          "date": "Salı, 2 Haziran 2026",
+          "sabah": {
+            "date": "Salı, 2 Haziran 2026",
+            "items": [
+              "Patates Kızartması",
+              "Haşlanmış Yumurta",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Elma",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Salı, 2 Haziran 2026",
+            "items": [
+              "Terbiyeli Şehriye Çorba / Tarhana Çorba",
+              "Pideli Köfte/Galeta Unlu Tavuk+Garnitür / Taze Fasulye Yemeği",
+              "Şehriyeli Pirinç Pilavı",
+              "Çoban Salata",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-03": {
+          "date": "Çarşamba, 3 Haziran 2026",
+          "sabah": {
+            "date": "Çarşamba, 3 Haziran 2026",
+            "items": [
+              "Peynirli Omlet",
+              "Çikolatalı Milföy Börek",
+              "Kaşar Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Çarşamba, 3 Haziran 2026",
+            "items": [
+              "Ezogelin Çorba / Sebze Çorbası",
+              "Çökertme Kebabı/Izgara Tavuk+Garnitür / Yoğurtlu Yaz Kızartma",
+              "Domatesli Bulgur Pilavı",
+              "Tiramisu",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-04": {
+          "date": "Perşembe, 4 Haziran 2026",
+          "sabah": {
+            "date": "Perşembe, 4 Haziran 2026",
+            "items": [
+              "Karışık Pizza",
+              "Haşlanmış Yumurta",
+              "Krem Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Reçel Çeşitleri",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Perşembe, 4 Haziran 2026",
+            "items": [
+              "Salçalı Şehriye Çorba / Anadolu Çorba",
+              "Lavaşta Tavuk Tantuni / Kabak Sandal",
+              "Spagetti Napoliten",
+              "Ayran",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-05": {
+          "date": "Cuma, 5 Haziran 2026",
+          "sabah": {
+            "date": "Cuma, 5 Haziran 2026",
+            "items": [
+              "Menemen",
+              "Sade Poğaça",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Tahinli Pekmez",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Cuma, 5 Haziran 2026",
+            "items": [
+              "Düğün Çorba / Çeşmi Nigar Çorba",
+              "Kuru Fasulye / İmam Bayıldı",
+              "Pirinç Pilavı",
+              "Karışık Salata",
+              "Yoğurt",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-06": {
+          "date": "Cumartesi, 6 Haziran 2026",
+          "sabah": {
+            "date": "Cumartesi, 6 Haziran 2026",
+            "items": [
+              "Karışık Kızartma",
+              "Haşlanmış Yumurta",
+              "Kaşar Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Sürülebilir Çikolata",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Cumartesi, 6 Haziran 2026",
+            "items": [
+              "Domates Çorba / Toyga Çorba",
+              "Çoban Kavurma/Tavuk Sote / Falafel+Yoğurt",
+              "Sebzeli Bulgur Pilavı",
+              "Ezme",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-07": {
+          "date": "Pazar, 7 Haziran 2026",
+          "sabah": {
+            "date": "Pazar, 7 Haziran 2026",
+            "items": [
+              "Sade Omlet",
+              "Peynirli/Ispanaklı Börek",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Pazar, 7 Haziran 2026",
+            "items": [
+              "Mercimek Çorbası / Havuç Çorba",
+              "Tavuk Şiş+Garnitür / Yeşil Mercimek Yemeği",
+              "Şehriyeli Pirinç Pilavı",
+              "Kalburabastı",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-08": {
+          "date": "Pazartesi, 8 Haziran 2026",
+          "sabah": {
+            "date": "Pazartesi, 8 Haziran 2026",
+            "items": [
+              "Patates Kavurması",
+              "Haşlanmış Yumurta",
+              "Kaşar Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Reçel Çeşitleri",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Pazartesi, 8 Haziran 2026",
+            "items": [
+              "Terbiyeli Şehriye Çorba / Tarhana Çorba",
+              "Misket Köfte/Tavuk Külbastı+Sebze Garnitür / Mücver+Yoğurt",
+              "Cevizli Erişte",
+              "Çilek",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-09": {
+          "date": "Salı, 9 Haziran 2026",
+          "sabah": {
+            "date": "Salı, 9 Haziran 2026",
+            "items": [
+              "Kaşarlı Omlet",
+              "Simit",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Salı, 9 Haziran 2026",
+            "items": [
+              "Ezogelin Çorba / Kremalı Mantar Çorba",
+              "Tavuk Pirzola+Elma Dilim Patates / Karışık Dolma+Yoğurt",
+              "Salçalı Makarna",
+              "Kaşık Salata",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-10": {
+          "date": "Çarşamba, 10 Haziran 2026",
+          "sabah": {
+            "date": "Çarşamba, 10 Haziran 2026",
+            "items": [
+              "Sosis Kokteyl Kızartma",
+              "Haşlanmış Yumurta",
+              "Tulum Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Helva",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Çarşamba, 10 Haziran 2026",
+            "items": [
+              "Mahluta Çorba / Şafak Çorba",
+              "Ekmek Arası Köfte / Ratatuy",
+              "Bulgur Pilavı",
+              "Ayran",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-11": {
+          "date": "Perşembe, 11 Haziran 2026",
+          "sabah": {
+            "date": "Perşembe, 11 Haziran 2026",
+            "items": [
+              "Sade Omlet",
+              "Dere Otlu Poğaça",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Bal+Tereyağ",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Perşembe, 11 Haziran 2026",
+            "items": [
+              "Çeşmi Nigar Çorba / Köz Biber Çorba",
+              "Galeta Unlu Tavuk+Garnitür / Barbunya Yemeği",
+              "Pirinç Pilavı",
+              "Magnolia",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-12": {
+          "date": "Cuma, 12 Haziran 2026",
+          "sabah": {
+            "date": "Cuma, 12 Haziran 2026",
+            "items": [
+              "Patates Kızartması",
+              "Menemen",
+              "Labne Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Sürülebilir Çikolata",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Cuma, 12 Haziran 2026",
+            "items": [
+              "Salçalı Şehriye Çorba / Sebze Çorbası",
+              "Arnavut Ciğeri+Garnitür/Izgara Tavuk+Garnitür / Mantar Sote",
+              "Salçalı Bulgur Pilavı",
+              "Cacık",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-13": {
+          "date": "Cumartesi, 13 Haziran 2026",
+          "sabah": {
+            "date": "Cumartesi, 13 Haziran 2026",
+            "items": [
+              "Sucuklu Yumurta",
+              "Zeytinli/Peynirli Açma",
+              "Kaşar Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Cumartesi, 13 Haziran 2026",
+            "items": [
+              "Mercimek Çorbası / Mısır Çorba",
+              "Lavaşta Tavuk Tantuni / Bezelye Yemeği",
+              "Spagetti Napoliten",
+              "Ayran",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-14": {
+          "date": "Pazar, 14 Haziran 2026",
+          "sabah": {
+            "date": "Pazar, 14 Haziran 2026",
+            "items": [
+              "Karışık Pizza",
+              "Haşlanmış Yumurta",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Tahinli Pekmez",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Pazar, 14 Haziran 2026",
+            "items": [
+              "Düğün Çorba / Domates Çorba",
+              "Nohut Yemeği / Yoğurtlu Karnabahar Kızartma",
+              "Şehriyeli Pirinç Pilavı",
+              "Cevizli Baklava",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-15": {
+          "date": "Pazartesi, 15 Haziran 2026",
+          "sabah": {
+            "date": "Pazartesi, 15 Haziran 2026",
+            "items": [
+              "Peynirli Omlet",
+              "Sade Poğaça",
+              "Kaşar Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Pazartesi, 15 Haziran 2026",
+            "items": [
+              "Ezogelin Çorba / Havuç Çorba",
+              "Lavaşta Et Tantuni/Çin Usulü Tavuk / İmam Bayıldı",
+              "Domatesli Bulgur Pilavı",
+              "Ayran",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-16": {
+          "date": "Salı, 16 Haziran 2026",
+          "sabah": {
+            "date": "Salı, 16 Haziran 2026",
+            "items": [
+              "Sosisli Patates Kızartması",
+              "Haşlanmış Yumurta",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Reçel Çeşitleri",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Salı, 16 Haziran 2026",
+            "items": [
+              "Tarhana Çorba / Kremalı Mantar Çorba",
+              "Tavuk Külbastı+Garnitür / Biber Dolma+Yoğurt",
+              "Salçalı Makarna",
+              "Kremalı Çikolatalı Pasta",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-17": {
+          "date": "Çarşamba, 17 Haziran 2026",
+          "sabah": {
+            "date": "Çarşamba, 17 Haziran 2026",
+            "items": [
+              "Sade Omlet",
+              "Simit",
+              "Çeçil Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Çarşamba, 17 Haziran 2026",
+            "items": [
+              "Çeşmi Nigar Çorba / Anadolu Çorba",
+              "Pideli Köfte / Soslu Karışık Kızartma",
+              "Havuçlu Pirinç Pilavı",
+              "Ayran",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-18": {
+          "date": "Perşembe, 18 Haziran 2026",
+          "sabah": {
+            "date": "Perşembe, 18 Haziran 2026",
+            "items": [
+              "Patates Salatası",
+              "Haşlanmış Yumurta",
+              "Kaşar Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Muz",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Perşembe, 18 Haziran 2026",
+            "items": [
+              "Salçalı Şehriye Çorba / Sebze Çorbası",
+              "Galeta Unlu Tavuk+Elma Dilim Patates / Mercimek Yemeği",
+              "Bulgur Pilavı",
+              "Rus Salatası",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-19": {
+          "date": "Cuma, 19 Haziran 2026",
+          "sabah": {
+            "date": "Cuma, 19 Haziran 2026",
+            "items": [
+              "Menemen",
+              "Dere Otlu Poğaça",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Bal+Tereyağ",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Cuma, 19 Haziran 2026",
+            "items": [
+              "Mercimek Çorbası / Düğün Çorba",
+              "Kuru Fasulye / Kabak Sandal",
+              "Şehriyeli Pirinç Pilavı",
+              "Yoğurt",
+              "Haşhaşlı Revani",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-20": {
+          "date": "Cumartesi, 20 Haziran 2026",
+          "sabah": {
+            "date": "Cumartesi, 20 Haziran 2026",
+            "items": [
+              "Karışık Kızartma",
+              "Haşlanmış Yumurta",
+              "Krem Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Cumartesi, 20 Haziran 2026",
+            "items": [
+              "Domates Çorba / Tutmaç Çorba",
+              "Tavuk Şiş+Garnitür / Yoğurtlu Karnabahar Kızartma",
+              "Spagetti Napoliten",
+              "Çiğ Köfte",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-21": {
+          "date": "Pazar, 21 Haziran 2026",
+          "sabah": {
+            "date": "Pazar, 21 Haziran 2026",
+            "items": [
+              "Kaşarlı Omlet",
+              "Patates Kroket",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Sürülebilir Çikolata",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Pazar, 21 Haziran 2026",
+            "items": [
+              "Ezogelin Çorba / Yayla Çorbası",
+              "Tas Kebabı/Izgara Tavuk+Garnitür / Falafel+Yoğurt",
+              "Salçalı Bulgur Pilavı",
+              "Ege Salata",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-22": {
+          "date": "Pazartesi, 22 Haziran 2026",
+          "sabah": {
+            "date": "Pazartesi, 22 Haziran 2026",
+            "items": [
+              "Patates Kızartması",
+              "Haşlanmış Yumurta",
+              "Kaşar Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Reçel Çeşitleri",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Pazartesi, 22 Haziran 2026",
+            "items": [
+              "Tarhana Çorba / Kremalı Mantar Çorba",
+              "Tavuk Pirzola+Garnitür / Mücver+Yoğurt",
+              "Şehriyeli Pirinç Pilavı",
+              "Trileçe",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-23": {
+          "date": "Salı, 23 Haziran 2026",
+          "sabah": {
+            "date": "Salı, 23 Haziran 2026",
+            "items": [
+              "Sucuklu Yumurta",
+              "Peynirli Milföy Böreği",
+              "Labne Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Salı, 23 Haziran 2026",
+            "items": [
+              "Çeşmi Nigar Çorba / Köz Biber Çorba",
+              "Hamburger / Ratatuy",
+              "Cevizli Erişte",
+              "Ayran",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-24": {
+          "date": "Çarşamba, 24 Haziran 2026",
+          "sabah": {
+            "date": "Çarşamba, 24 Haziran 2026",
+            "items": [
+              "Karışık Pizza",
+              "Haşlanmış Yumurta",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Tahinli Pekmez",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Çarşamba, 24 Haziran 2026",
+            "items": [
+              "Domates Çorba / Yayla Çorbası",
+              "Galeta Unlu Tavuk+Elma Dilim Patates / Bezelye Yemeği",
+              "Sebzeli Bulgur Pilavı",
+              "Kayısı",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-25": {
+          "date": "Perşembe, 25 Haziran 2026",
+          "sabah": {
+            "date": "Perşembe, 25 Haziran 2026",
+            "items": [
+              "Sade Omlet",
+              "Zeytinli/Peynirli Açma",
+              "Örgü Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Bal+Tereyağ",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Perşembe, 25 Haziran 2026",
+            "items": [
+              "Mercimek Çorbası / Düğün Çorba",
+              "Nohut Yemeği / Taze Fasulye Yemeği",
+              "Şehriyeli Pirinç Pilavı",
+              "Cacık",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-26": {
+          "date": "Cuma, 26 Haziran 2026",
+          "sabah": {
+            "date": "Cuma, 26 Haziran 2026",
+            "items": [
+              "Sosis Kokteyl(Salçalı)",
+              "Haşlanmış Yumurta",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Cuma, 26 Haziran 2026",
+            "items": [
+              "Salçalı Şehriye Çorba / Yüksük Çorbası",
+              "İzmir Köfte/Izgara Tavuk+Garnitür / İmam Bayıldı",
+              "Şehriyeli Bulgur Pilavı",
+              "Kakaolu Puding",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-27": {
+          "date": "Cumartesi, 27 Haziran 2026",
+          "sabah": {
+            "date": "Cumartesi, 27 Haziran 2026",
+            "items": [
+              "Peynirli Omlet",
+              "Sade Poğaça",
+              "Kaşar Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Sürülebilir Çikolata",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Cumartesi, 27 Haziran 2026",
+            "items": [
+              "Ezogelin Çorba / Anadolu Çorba",
+              "Lavaşta Tavuk Tantuni / Barbunya Yemeği",
+              "Fırın Makarna",
+              "Ayran",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-28": {
+          "date": "Pazar, 28 Haziran 2026",
+          "sabah": {
+            "date": "Pazar, 28 Haziran 2026",
+            "items": [
+              "Patates Kızartması",
+              "Haşlanmış Yumurta",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Mevsim Sebzeleri Söğüş",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Pazar, 28 Haziran 2026",
+            "items": [
+              "Tarhana Çorba / Havuç Çorba",
+              "Çoban Kavurma/Garnitürlü Tavuk Sarma / Yoğurtlu Yaz Kızartma",
+              "Sebzeli Bulgur Pilavı",
+              "Tahinli Cevizli Kemalpaşa Tatlısı",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-29": {
+          "date": "Pazartesi, 29 Haziran 2026",
+          "sabah": {
+            "date": "Pazartesi, 29 Haziran 2026",
+            "items": [
+              "Menemen",
+              "Simit",
+              "Ezine Peyniri",
+              "Siyah/Yeşil Zeytin",
+              "Helva",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Pazartesi, 29 Haziran 2026",
+            "items": [
+              "Çeşmi Nigar Çorba / Sebze Çorbası",
+              "Tavuk Pirzola+Garnitür / Karışık Dolma+Yoğurt",
+              "Makarna(Seçenekli Soslu)",
+              "Karışık Salata",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        },
+        "2026-06-30": {
+          "date": "Salı, 30 Haziran 2026",
+          "sabah": {
+            "date": "Salı, 30 Haziran 2026",
+            "items": [
+              "Patates Kavurması",
+              "Haşlanmış Yumurta",
+              "Beyaz Peynir",
+              "Siyah/Yeşil Zeytin",
+              "Reçel Çeşitleri",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "650-850 kcal"
+          },
+          "aksam": {
+            "date": "Salı, 30 Haziran 2026",
+            "items": [
+              "Domates Çorba / Düğün Çorba",
+              "Kuru Fasulye / Türlü",
+              "Şehriyeli Pirinç Pilavı",
+              "Mozaik Pasta",
+              "Turşu",
+              "500 ml Su",
+              "Çeyrek Ekmek"
+            ],
+            "calories": "1100-1500 kcal"
+          }
+        }
+      }
     }
   }
 }
