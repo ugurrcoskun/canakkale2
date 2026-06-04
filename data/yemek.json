@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-03T11:34:09.787995+03:00",
+  "generatedAt": "2026-06-04T11:07:11.184768+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
-    "date": "3 Haziran 2026, Çarşamba",
+    "date": "4 Haziran 2026, Perşembe",
     "items": [
-      "Ezogelin Çorba (203)",
-      "Macar Gulaş (323) Patates Püresi (127)",
-      "Arpa Şehriye Pilavı (360)",
-      "Cevizli Baklava (487)"
+      "Mercimek Çorba (216)",
+      "Barbekü Soslu Tavuk (226)",
+      "Yoğurtlu Mantı (434)",
+      "Karpuz (140)"
     ],
     "monthly": {
       "yearMonth": "2026-06",
@@ -197,27 +197,27 @@
   },
   "kyk": {
     "sourceUrl": "https://yurtmenu.net/canakkale",
-    "date": "Çarşamba, 3 Haziran 2026",
+    "date": "Perşembe, 4 Haziran 2026",
     "sabah": {
-      "date": "Çarşamba, 3 Haziran 2026",
+      "date": "Perşembe, 4 Haziran 2026",
       "items": [
-        "Peynirli Omlet",
-        "Çikolatalı Milföy Börek",
-        "Kaşar Peyniri",
+        "Karışık Pizza",
+        "Haşlanmış Yumurta",
+        "Krem Peynir",
         "Siyah/Yeşil Zeytin",
-        "Mevsim Sebzeleri Söğüş",
+        "Reçel Çeşitleri",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
       "calories": "650-850 kcal"
     },
     "aksam": {
-      "date": "Çarşamba, 3 Haziran 2026",
+      "date": "Perşembe, 4 Haziran 2026",
       "items": [
-        "Ezogelin Çorba / Sebze Çorbası",
-        "Çökertme Kebabı/Izgara Tavuk+Garnitür / Yoğurtlu Yaz Kızartma",
-        "Domatesli Bulgur Pilavı",
-        "Tiramisu",
+        "Salçalı Şehriye Çorba / Anadolu Çorba",
+        "Lavaşta Tavuk Tantuni / Kabak Sandal",
+        "Spagetti Napoliten",
+        "Ayran",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
