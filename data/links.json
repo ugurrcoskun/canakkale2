@@ -2,7 +2,7 @@
   "haftaici": [
     {
       "label": "HAFTA İÇİ SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/3-HAZIRAN-4.pdf"
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/3-HAZIRAN-5.pdf"
     }
   ],
   "haftasonu": [
@@ -13,5 +13,10 @@
   ],
   "arefe": [],
   "bayram": [],
-  "diger": []
+  "diger": [
+    {
+      "label": "5/06/2026-18/06/2026 TARİHLERİ ARASINDA KÜTÜPHANE SEFERLERİ",
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/KUTUPHANE-SERVISI-1.pdf"
+    }
+  ]
 }
