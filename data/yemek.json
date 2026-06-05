@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-04T11:07:11.184768+03:00",
+  "generatedAt": "2026-06-05T10:52:08.766306+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
-    "date": "4 Haziran 2026, Perşembe",
+    "date": "5 Haziran 2026, Cuma",
     "items": [
-      "Mercimek Çorba (216)",
-      "Barbekü Soslu Tavuk (226)",
-      "Yoğurtlu Mantı (434)",
-      "Karpuz (140)"
+      "Domates Çorba (109)",
+      "Et Burger (274) Elma Dilim Patates (170)",
+      "Peynirli Makarna (370)",
+      "Ayran (74)"
     ],
     "monthly": {
       "yearMonth": "2026-06",
@@ -197,27 +197,28 @@
   },
   "kyk": {
     "sourceUrl": "https://yurtmenu.net/canakkale",
-    "date": "Perşembe, 4 Haziran 2026",
+    "date": "Cuma, 5 Haziran 2026",
     "sabah": {
-      "date": "Perşembe, 4 Haziran 2026",
+      "date": "Cuma, 5 Haziran 2026",
       "items": [
-        "Karışık Pizza",
-        "Haşlanmış Yumurta",
-        "Krem Peynir",
+        "Menemen",
+        "Sade Poğaça",
+        "Beyaz Peynir",
         "Siyah/Yeşil Zeytin",
-        "Reçel Çeşitleri",
+        "Tahinli Pekmez",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
       "calories": "650-850 kcal"
     },
     "aksam": {
-      "date": "Perşembe, 4 Haziran 2026",
+      "date": "Cuma, 5 Haziran 2026",
       "items": [
-        "Salçalı Şehriye Çorba / Anadolu Çorba",
-        "Lavaşta Tavuk Tantuni / Kabak Sandal",
-        "Spagetti Napoliten",
-        "Ayran",
+        "Düğün Çorba / Çeşmi Nigar Çorba",
+        "Kuru Fasulye / İmam Bayıldı",
+        "Pirinç Pilavı",
+        "Karışık Salata",
+        "Yoğurt",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
