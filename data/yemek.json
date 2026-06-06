@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-05T10:52:08.766306+03:00",
+  "generatedAt": "2026-06-06T09:42:30.059700+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
-    "date": "5 Haziran 2026, Cuma",
+    "date": "1 Haziran 2026, Pazartesi",
     "items": [
-      "Domates Çorba (109)",
-      "Et Burger (274) Elma Dilim Patates (170)",
-      "Peynirli Makarna (370)",
-      "Ayran (74)"
+      "Tavuksuyu Çorba (135)",
+      "Patlıcan Musakka (439)",
+      "Nohutlu Bulgur Pilavı (302)",
+      "Yoğurt (93)"
     ],
     "monthly": {
       "yearMonth": "2026-06",
@@ -197,28 +197,27 @@
   },
   "kyk": {
     "sourceUrl": "https://yurtmenu.net/canakkale",
-    "date": "Cuma, 5 Haziran 2026",
+    "date": "Cumartesi, 6 Haziran 2026",
     "sabah": {
-      "date": "Cuma, 5 Haziran 2026",
+      "date": "Cumartesi, 6 Haziran 2026",
       "items": [
-        "Menemen",
-        "Sade Poğaça",
-        "Beyaz Peynir",
+        "Karışık Kızartma",
+        "Haşlanmış Yumurta",
+        "Kaşar Peyniri",
         "Siyah/Yeşil Zeytin",
-        "Tahinli Pekmez",
+        "Sürülebilir Çikolata",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
       "calories": "650-850 kcal"
     },
     "aksam": {
-      "date": "Cuma, 5 Haziran 2026",
+      "date": "Cumartesi, 6 Haziran 2026",
       "items": [
-        "Düğün Çorba / Çeşmi Nigar Çorba",
-        "Kuru Fasulye / İmam Bayıldı",
-        "Pirinç Pilavı",
-        "Karışık Salata",
-        "Yoğurt",
+        "Domates Çorba / Toyga Çorba",
+        "Çoban Kavurma/Tavuk Sote / Falafel+Yoğurt",
+        "Sebzeli Bulgur Pilavı",
+        "Ezme",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
