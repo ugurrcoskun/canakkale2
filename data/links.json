@@ -2,7 +2,7 @@
   "haftaici": [
     {
       "label": "HAFTA İÇİ SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/10-TEMMUZ-4.pdf"
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/13-TEMMUZ-3.pdf"
     }
   ],
   "haftasonu": [
@@ -13,5 +13,10 @@
   ],
   "arefe": [],
   "bayram": [],
-  "diger": []
+  "diger": [
+    {
+      "label": "15 TEMMUZ GÜNÜ SEFER SAATLERİ",
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/15-TEMMUZ-10.pdf"
+    }
+  ]
 }
