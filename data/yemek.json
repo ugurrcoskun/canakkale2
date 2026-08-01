@@ -1,213 +1,195 @@
 {
-  "generatedAt": "2026-07-07T10:01:48.204429+03:00",
+  "generatedAt": "2026-08-01T09:14:49.363830+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
-    "date": "7 Temmuz 2026, Salı",
+    "date": "3 Ağustos 2026, Pazartesi",
     "items": [
-      "Ezogelin Çorba (230)",
-      "Tavuk Kavurma (317)",
-      "Su Böreği (430)",
-      "Yoğurt (93)"
+      "Domates Çorba (153)",
+      "İzmir Köfte (442)",
+      "Arpa Şeh.Pirinç Pilavı (345)",
+      "Yoğurt (124)"
     ],
     "monthly": {
-      "yearMonth": "2026-07",
+      "yearMonth": "2026-08",
       "days": {
-        "2026-07-31": {
-          "date": "31 Temmuz 2026, Cuma",
-          "items": [
-            "Domates Çorba (153)",
-            "Kıy. Çökertme Kebabı (388)",
-            "Cevizli Erişte (300)",
-            "Sütlaç (357)"
-          ]
-        },
-        "2026-07-30": {
-          "date": "30 Temmuz 2026, Perşembe",
-          "items": [
-            "Düğün Çorba (174)",
-            "Tavuk Sote (328)",
-            "Sosyete Mantısı (357)",
-            "Kavun (153)"
-          ]
-        },
-        "2026-07-29": {
-          "date": "29 Temmuz 2026, Çarşamba",
-          "items": [
-            "Toyga Çorba (200)",
-            "Buğu Kebabı (453)",
-            "Tel Şeh. Pirinç Pilavı (345)",
-            "Aşure (513)"
-          ]
-        },
-        "2026-07-28": {
-          "date": "28 Temmuz 2026, Salı",
+        "2026-08-28": {
+          "date": "28 Ağustos 2026, Cuma",
           "items": [
             "Mercimek Çorba (233)",
-            "Tav. Hünkarbeğendi (440)",
-            "Makarna Kavurma (310)",
-            "Kabak Borani (112)"
+            "Izgara Köfte (275) +Kızarmış Biber (12)",
+            "Peynirli Erişte (264)",
+            "Fındıklı Muhallebi (343)"
           ]
         },
-        "2026-07-27": {
-          "date": "27 Temmuz 2026, Pazartesi",
+        "2026-08-27": {
+          "date": "27 Ağustos 2026, Perşembe",
           "items": [
-            "Ezogelin Çorba (230)",
-            "Et Döner (318) Lavaş (170)",
-            "Arpa Şehriye Pilavı (360)",
+            "Sebze Çorba (155)",
+            "Tavuk Döner (287) +Mısırlı Kıvırcık Salata (21)",
+            "Bahar Pilavı (259)",
             "Ayran (74)"
           ]
         },
-        "2026-07-24": {
-          "date": "24 Temmuz 2026, Cuma",
-          "items": [
-            "Tel Şehriye Çorba (124)",
-            "Et Sote (370) Patates Püresi (127)",
-            "Zey. Kabak Dolma (377)",
-            "Yoğurt (93)"
-          ]
-        },
-        "2026-07-23": {
-          "date": "23 Temmuz 2026, Perşembe",
-          "items": [
-            "Mercimek Çorba (233)",
-            "Kadınbudu Köfte (477) Haydari (55)",
-            "Fırın Makarna (447)",
-            "Akdeniz Salatası (134)"
-          ]
-        },
-        "2026-07-22": {
-          "date": "22 Temmuz 2026, Çarşamba",
-          "items": [
-            "Yayla Çorba (239)",
-            "Ekşili Köfte (467)",
-            "Yeşil Merc.Bulgur Pilavı (310)",
-            "Tulumba Tatlısı (414)"
-          ]
-        },
-        "2026-07-21": {
-          "date": "21 Temmuz 2026, Salı",
-          "items": [
-            "Ezogelin Çorba (230)",
-            "Fırın Tavuk But (395) Havuç Tarator (63",
-            "Kısır (283)",
-            "Kazandibi (387)"
-          ]
-        },
-        "2026-07-20": {
-          "date": "20 Temmuz 2026, Pazartesi",
+        "2026-08-26": {
+          "date": "26 Ağustos 2026, Çarşamba",
           "items": [
             "Tavuksuyu Çorba (198)",
-            "Patlıcan Musakka (439)",
-            "Melek Pilavı (354)",
-            "Cacık (114)"
+            "Hünkarbeğendi (535)",
+            "Arpa Şehriye Pilavı (360)",
+            "Tulumba Tatlısı (495)"
           ]
         },
-        "2026-07-17": {
-          "date": "17 Temmuz 2026, Cuma",
-          "items": [
-            "Mercimek Çorba (233)",
-            "Soslu Izgara Köfte (275) Fasulye Piyazı (83)",
-            "Şehriyeli Kuskus (353)",
-            "Kadayıflı Muhallebi (299)"
-          ]
-        },
-        "2026-07-16": {
-          "date": "16 Temmuz 2026, Perşembe",
+        "2026-08-25": {
+          "date": "25 Ağustos 2026, Salı",
           "items": [
             "Ezogelin Çorba (230)",
-            "Köri Soslu Tavuk (389)",
+            "Tavuk Sote (328)",
+            "Yoğurtlu Mantı (381)",
+            "Şeftali (76)"
+          ]
+        },
+        "2026-08-24": {
+          "date": "24 Ağustos 2026, Pazartesi",
+          "items": [
+            "Yayla Çorba (239)",
+            "Patates Oturtma (415)",
+            "Kısır (283)",
+            "Karışık Turşu (21)"
+          ]
+        },
+        "2026-08-21": {
+          "date": "21 Ağustos 2026, Cuma",
+          "items": [
+            "Mercimek Çorba (233)",
+            "Etli Kuru Fasulye (382)",
+            "Garn. Pirinç Pilavı (359)",
+            "Kemalpaşa Tatlısı (209)"
+          ]
+        },
+        "2026-08-20": {
+          "date": "20 Ağustos 2026, Perşembe",
+          "items": [
+            "Ezogelin Çorba (230)",
+            "Tavuk Kordon Blue (456) +Havuç Tarator (63)",
+            "Fırın Makarna (447)",
+            "Karışık Salata (82)"
+          ]
+        },
+        "2026-08-19": {
+          "date": "19 Ağustos 2026, Çarşamba",
+          "items": [
+            "Domates Çorba (153)",
+            "Şehriyeli Güveç (295)",
+            "Şakşuka (342)",
+            "Yoğurt (124)"
+          ]
+        },
+        "2026-08-18": {
+          "date": "18 Ağustos 2026, Salı",
+          "items": [
+            "Düğün Çorba (174)",
+            "Fırın Tavuk But (395) +Sebze Söğüş (12)",
+            "Peynirli Gül Böreği (430)",
+            "Yoğ.Semizotu Salatası (122)"
+          ]
+        },
+        "2026-08-17": {
+          "date": "17 Ağustos 2026, Pazartesi",
+          "items": [
+            "Köylü Çorba (176)",
+            "Ekşili Köfte (467)",
+            "Sade Bulgur Pilavı (271)",
+            "Fıstıklı İrmik Helvası (480)"
+          ]
+        },
+        "2026-08-14": {
+          "date": "14 Ağustos 2026, Cuma",
+          "items": [
+            "Arpa Şehriye Çorba (167)",
+            "Fırın Köfte (444) +Fasulye Piyazı (93)",
+            "Makarna Kavurma (310)",
+            "Yoğurt (124)"
+          ]
+        },
+        "2026-08-13": {
+          "date": "13 Ağustos 2026, Perşembe",
+          "items": [
+            "Sebze Çorba (155)",
+            "Tavuk Kavurma (317)",
             "Yoğurtlu Mantı (381)",
             "Karpuz (140)"
           ]
         },
-        "2026-07-14": {
-          "date": "14 Temmuz 2026, Salı",
+        "2026-08-12": {
+          "date": "12 Ağustos 2026, Çarşamba",
           "items": [
-            "Toyga Çorba (200)",
-            "Tavuk Döner (287) Elma Dilim Patates (170)",
-            "Arpa Şehriye Pilavı (360)",
-            "Ayran (100)"
+            "Tarhana Çorba (194)",
+            "Ali Nazik (359)",
+            "Nohutlu Pirinç Pilavı (342)",
+            "Cevizli Baklava (482)"
           ]
         },
-        "2026-07-13": {
-          "date": "13 Temmuz 2026, Pazartesi",
-          "items": [
-            "Domates Çorba (153)",
-            "Hünkarbeğendi (621)",
-            "Sade Bulgur Pilavı (271)",
-            "Kemalpaşa Tatlısı (301)"
-          ]
-        },
-        "2026-07-10": {
-          "date": "10 Temmuz 2026, Cuma",
-          "items": [
-            "Sebze Çorba (155)",
-            "Et Döner (318) +Domates Salatası (44)",
-            "Garn. Pirinç Pİlavı (359)",
-            "Ayran (100)"
-          ]
-        },
-        "2026-07-09": {
-          "date": "9 Temmuz 2026, Perşembe",
-          "items": [
-            "Düğün Çorba (174)",
-            "Tavuk Kordon Blue (456) Yoğ.Semizotu Salat. (85)",
-            "Sebzeli Makarna (330)",
-            "İrmik Helvası (370)"
-          ]
-        },
-        "2026-07-08": {
-          "date": "8 Temmuz 2026, Çarşamba",
+        "2026-08-11": {
+          "date": "11 Ağustos 2026, Salı",
           "items": [
             "Mercimek Çorba (233)",
-            "Et Haşlama (367)",
-            "Peynirli Erişte (264)",
-            "Cevizli Baklava (356)"
+            "Tavuklu Kabak Sandal (362)",
+            "Erişte Kavurma (235)",
+            "Sütlaç (213)"
           ]
         },
-        "2026-07-07": {
-          "date": "7 Temmuz 2026, Salı",
+        "2026-08-10": {
+          "date": "10 Ağustos 2026, Pazartesi",
           "items": [
             "Ezogelin Çorba (230)",
-            "Tavuk Kavurma (317)",
-            "Su Böreği (430)",
-            "Yoğurt (93)"
-          ]
-        },
-        "2026-07-06": {
-          "date": "6 Temmuz 2026, Pazartesi",
-          "items": [
-            "Tarhana Çorba (383)",
-            "İslim Kebabı (499)",
-            "Nohutlu Pirinç Pilavı (342)",
-            "Biber Borani (113)"
-          ]
-        },
-        "2026-07-03": {
-          "date": "3 Temmuz 2026, Cuma",
-          "items": [
-            "Tavuksuyu Çorba (198)",
-            "İzmir Köfte (442)",
-            "Dom. Bulgur Pilavı (279)",
-            "Keşkül/Çik. Puding (322)"
-          ]
-        },
-        "2026-07-02": {
-          "date": "2 Temmuz 2026, Perşembe",
-          "items": [
-            "Domates Çorba (153)",
-            "Tavuk Döner (287) Marul Salatası (29)",
-            "Dereotlu Pirinç Pilavı (311)",
+            "Et Döner (318) +Domates Salatası (45)",
+            "Arpa Şehriye Pilavı (360)",
             "Ayran (74)"
           ]
         },
-        "2026-07-01": {
-          "date": "1 Temmuz 2026, Çarşamba",
+        "2026-08-07": {
+          "date": "7 Ağustos 2026, Cuma",
           "items": [
             "Buğday Çorba (164)",
-            "Kıymalı Ali Nazik (359)",
-            "Tepsi Böreği (430)",
-            "Kayısı/Şeftali (76)"
+            "Et Sote (370) +Patates Püresi (127)",
+            "Peynirli Kuskus (343)",
+            "Kadayıf (400)"
+          ]
+        },
+        "2026-08-06": {
+          "date": "6 Ağustos 2026, Perşembe",
+          "items": [
+            "Mercimek Çorba (233)",
+            "Köri Soslu Tavuk (389)",
+            "Su Böreği (430)",
+            "Yoğ.Kapya Biber Salat.(126)"
+          ]
+        },
+        "2026-08-05": {
+          "date": "5 Ağustos 2026, Çarşamba",
+          "items": [
+            "Tavuksuyu Çorba (198)",
+            "Patlıcan Musakka (439)",
+            "Sebzeli Bulgur Pilavı (288)",
+            "Cacık (118)"
+          ]
+        },
+        "2026-08-04": {
+          "date": "4 Ağustos 2026, Salı",
+          "items": [
+            "Ezogelin Çorba (230)",
+            "Tavuk Şinitzel (414) +Haydari (55)",
+            "Salçalı Makarna (321)",
+            "Çikolatalı Puding (306)"
+          ]
+        },
+        "2026-08-03": {
+          "date": "3 Ağustos 2026, Pazartesi",
+          "items": [
+            "Domates Çorba (153)",
+            "İzmir Köfte (442)",
+            "Arpa Şeh.Pirinç Pilavı (345)",
+            "Yoğurt (124)"
           ]
         }
       }
@@ -227,7 +209,7 @@
       "calories": ""
     },
     "monthly": {
-      "yearMonth": "2026-07",
+      "yearMonth": "2026-08",
       "days": {}
     }
   }
