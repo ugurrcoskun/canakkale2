@@ -3,15 +3,24 @@
     {
       "label": "HAFTA İÇİ SEFER SAATLERİ",
       "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/27-AGUSTOS-1.pdf"
+    },
+    {
+      "label": "14 EYLÜL İTİBARİYLE HAFTA İÇİ SEFER SAATLERİ",
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/14-EYLUL-21.pdf"
     }
   ],
   "haftasonu": [
     {
       "label": "HAFTA SONU SEFER SAATLERİ",
-      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/12-EYLUL-10.pdf"
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/12-EYLUL-11.pdf"
     }
   ],
   "arefe": [],
   "bayram": [],
-  "diger": []
+  "diger": [
+    {
+      "label": "OTOGAR-TERZİOĞLU YERLEŞKESİ",
+      "url": "https://ulasim.canakkale.bel.tr/wp-content/uploads/2018/02/OTOGAR-TERZIOGLU-YERLESKESI.pdf"
+    }
+  ]
 }
