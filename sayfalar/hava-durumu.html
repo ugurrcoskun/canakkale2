@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hava Durumu — Çanakkale</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgba(122, 89, 89, 0.633);
+      font-family: monospace;
+      margin: 0;
+      padding: 0;
+      color: black;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Geri Dön Butonu */
+    .back-btn {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 1.05em;
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+      background-color: #f0f0f0;
+      border: 2px solid black;
+      border-radius: 6px;
+      padding: 8px 16px;
+      box-shadow: 2px 2px 0px black;
+      margin-bottom: 18px;
+      transition: all 0.15s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #8d9cf4;
+      transform: translate(-1px, -1px);
+    }
+
+    /* Ana Kutular */
+    .box-container {
+      border: 7px solid black;
+      background-color: #d3d3d3;
+      padding: 24px;
+      margin: 0 auto 30px auto;
+      border-radius: 12px;
+      box-shadow: 4px 4px 0px black;
+    }
+
+    .box-header {
+      margin-top: 0;
+      margin-bottom: 18px;
+      background-color: #8d9cf4;
+      color: black;
+      padding: 12px 16px;
+      text-align: center;
+      border: 4px solid black;
+      font-size: 1.4em;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    /* Anlık Durum Kartı */
+    .current-card {
+      background-color: #f8f8f8;
+      border: 4px solid black;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 22px;
+      box-shadow: 3px 3px 0px black;
+    }
+
+    .current-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 2px solid black;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .current-temp-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .current-temp-val {
+      font-size: 3em;
+      font-weight: bold;
+      line-height: 1;
+      color: black;
+    }
+
+    .current-condition-tag {
+      font-size: 1.15em;
+      font-weight: bold;
+      padding: 6px 14px;
+      border: 2px solid black;
+      border-radius: 6px;
+      background-color: #8d9cf4;
+      color: black;
+    }
+
+    .current-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      text-align: center;
+    }
+
+    .meta-box {
+      background-color: #f0f0f0;
+      border: 2px solid black;
+      border-radius: 6px;
+      padding: 10px;
+    }
+
+    .meta-val {
+      font-size: 1.3em;
+      font-weight: bold;
+      display: block;
+      color: black;
+    }
+
+    .meta-lbl {
+      font-size: 0.9em;
+      font-weight: bold;
+      color: #444;
+      margin-top: 2px;
+    }
+
+    /* Saatlik Tahmin Şeridi */
+    .section-header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 1.15em;
+      font-weight: bold;
+      color: black;
+    }
+
+    .scroll-hint {
+      font-size: 0.88em;
+      font-weight: bold;
+      background-color: #f0f0f0;
+      border: 1.5px solid black;
+      border-radius: 4px;
+      padding: 3px 8px;
+      color: #333;
+    }
+
+    /* Özel Retro Kaydırma Çubuğu */
+    .custom-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: #8d9cf4 #cfcfcf;
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #cfcfcf;
+      border-radius: 4px;
+      border: 1px solid black;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #8d9cf4;
+      border-radius: 4px;
+      border: 1.5px solid black;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #6f80e6;
+    }
+
+    .hourly-scroll-wrap {
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .hourly-strip {
+      display: flex;
+      gap: 12px;
+      min-width: min-content;
+    }
+
+    .hourly-item {
+      background-color: #f8f8f8;
+      border: 3px solid black;
+      border-radius: 8px;
+      padding: 12px 8px;
+      text-align: center;
+      min-width: 110px;
+      width: 110px;
+      box-shadow: 2px 2px 0px black;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+
+    .hourly-time {
+      font-size: 0.95em;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .hourly-temp {
+      font-size: 1.25em;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .hourly-desc {
+      font-size: 0.82em;
+      font-weight: bold;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      color: #111;
+    }
+
+    .hourly-rain {
+      font-size: 0.85em;
+      font-weight: bold;
+      color: #1e40af;
+    }
+
+    /* 5 Günlük Kaydırmalı Tahmin Kartları */
+    .daily-scroll-wrap {
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+
+    .daily-strip {
+      display: flex;
+      gap: 14px;
+      min-width: min-content;
+    }
+
+    .daily-card {
+      background-color: #f8f8f8;
+      border: 4px solid black;
+      border-radius: 10px;
+      padding: 16px 12px;
+      box-shadow: 3px 3px 0px black;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      min-width: 175px;
+      width: 175px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      transition: all 0.15s ease;
+      box-sizing: border-box;
+    }
+
+    .daily-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px black;
+    }
+
+    .daily-day-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 2px;
+    }
+
+    .daily-date-sub {
+      font-size: 0.88em;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .daily-condition-tag {
+      font-size: 0.9em;
+      font-weight: bold;
+      padding: 6px 4px;
+      border: 2px solid black;
+      border-radius: 6px;
+      text-align: center;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      line-height: 1.25;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .daily-temps-box {
+      font-size: 1.25em;
+      font-weight: bold;
+      white-space: nowrap;
+      margin-bottom: 10px;
+    }
+
+    .temp-max {
+      color: #b91c1c;
+    }
+
+    .temp-min {
+      color: #1d4ed8;
+      margin-left: 6px;
+    }
+
+    .daily-sub-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .daily-rain-box {
+      font-size: 0.85em;
+      font-weight: bold;
+      background-color: #dbeafe;
+      color: #1e3a8a;
+      border: 1.5px solid black;
+      border-radius: 6px;
+      padding: 4px 6px;
+      text-align: center;
+    }
+
+    .daily-wind-box {
+      font-size: 0.85em;
+      font-weight: bold;
+      color: #333;
+      background-color: #f0f0f0;
+      border: 1.5px solid black;
+      border-radius: 6px;
+      padding: 4px 6px;
+      text-align: center;
+    }
+
+    .source-note {
+      text-align: center;
+      font-size: 0.9em;
+      font-weight: bold;
+      color: #333;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        padding: 12px 8px;
+      }
+
+      .box-container {
+        border-width: 5px;
+        padding: 16px 12px;
+      }
+
+      .box-header {
+        font-size: 1.2em;
+        padding: 10px;
+        border-width: 3px;
+      }
+
+      .current-top-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .daily-card {
+        min-width: 160px;
+        width: 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-btn">‹ Ana Sayfa</a>
+
+    <div class="box-container">
+      <h1 class="box-header">Çanakkale Hava Durumu</h1>
+
+      <!-- Anlık Ayrıntılı Durum -->
+      <div class="current-card">
+        <div class="current-top-row">
+          <div class="current-temp-wrap">
+            <span class="current-temp-val" id="cur-temp">--°C</span>
+            <span class="current-condition-tag" id="cur-desc">Yükleniyor...</span>
+          </div>
+          <div style="font-weight: bold; font-size: 1.1em;" id="cur-range">
+            Günün Aralığı: ▲ --° / ▼ --°
+          </div>
+        </div>
+
+        <div class="current-meta-grid">
+          <div class="meta-box">
+            <span class="meta-val" id="cur-feel">--°C</span>
+            <span class="meta-lbl">Hissedilen</span>
+          </div>
+          <div class="meta-box">
+            <span class="meta-val" id="cur-humidity">%--</span>
+            <span class="meta-lbl">Bağıl Nem</span>
+          </div>
+          <div class="meta-box">
+            <span class="meta-val" id="cur-wind">-- km/s</span>
+            <span class="meta-lbl">Rüzgar Hızı</span>
+          </div>
+          <div class="meta-box">
+            <span class="meta-val" id="cur-rain-chance">%--</span>
+            <span class="meta-lbl">Günün Yağış İhtimali</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saatlik Tahmin Şeridi -->
+      <div class="section-header-wrap">
+        <div class="section-subtitle">Günün Saatlik Akışı (Çanakkale)</div>
+        <div class="scroll-hint">‹ Kaydırın ›</div>
+      </div>
+      <div class="hourly-scroll-wrap custom-scroll">
+        <div class="hourly-strip" id="hourly-strip">
+          <div style="padding: 10px; font-weight: bold;">Saatlik veriler alınıyor...</div>
+        </div>
+      </div>
+
+      <!-- 5 Günlük Detaylı Kaydırmalı Tahmin Şeridi -->
+      <div class="section-header-wrap">
+        <div class="section-subtitle">5 Günlük Detaylı Tahmin</div>
+        <div class="scroll-hint">‹ Kaydırın ›</div>
+      </div>
+      <div class="daily-scroll-wrap custom-scroll">
+        <div class="daily-strip" id="forecast-grid">
+          <div style="text-align: center; padding: 20px; font-weight: bold;">5 günlük tahmin yükleniyor...</div>
+        </div>
+      </div>
+
+      <div class="source-note">
+        • Çanakkale Meteoroloji verileri Open-Meteo API aracılığıyla anlık ve 5 günlük periyotlarla güncellenmektedir.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const GUNLER = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+      const AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+      const AYLAR_KISA = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
+
+      function parseWmo(code) {
+        if (code === 0) return { desc: "Açık", color: "#fef08a" };
+        if (code === 1) return { desc: "Az Bulutlu", color: "#e0e7ff" };
+        if (code === 2) return { desc: "Parçalı Bulutlu", color: "#c7d2fe" };
+        if (code === 3) return { desc: "Çok Bulutlu", color: "#e2e8f0" };
+        if (code >= 45 && code <= 48) return { desc: "Sisli", color: "#cbd5e1" };
+        if (code >= 51 && code <= 57) return { desc: "Çiseleme", color: "#bfdbfe" };
+        if (code >= 61 && code <= 67) return { desc: "Yağmurlu", color: "#93c5fd" };
+        if (code >= 71 && code <= 77) return { desc: "Kar Yağışlı", color: "#e0f2fe" };
+        if (code >= 80 && code <= 82) return { desc: "Sağanak Yağış", color: "#60a5fa" };
+        if (code >= 95 && code <= 99) return { desc: "Fırtına", color: "#fca5a5" };
+        return { desc: "Bulutlu", color: "#e2e8f0" };
+      }
+
+      async function fetchWeatherDetails() {
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=40.1553&longitude=26.4082&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&timezone=Europe%2FIstanbul&forecast_days=5";
+
+        try {
+          const res = await fetch(url);
+          if (!res.ok) throw new Error("API hatası: " + res.status);
+          const data = await res.json();
+
+          // 1. Anlık Kart
+          const cur = data.current;
+          const curWmo = parseWmo(cur.weather_code);
+          const curTemp = Math.round(cur.temperature_2m);
+          const curFeel = Math.round(cur.apparent_temperature);
+          const curHum = cur.relative_humidity_2m;
+          const curWind = Math.round(cur.wind_speed_10m);
+
+          const d0Max = Math.round(data.daily.temperature_2m_max[0]);
+          const d0Min = Math.round(data.daily.temperature_2m_min[0]);
+          const d0Rain = data.daily.precipitation_probability_max[0] || 0;
+
+          document.getElementById("cur-temp").textContent = `${curTemp}°C`;
+          document.getElementById("cur-desc").textContent = curWmo.desc;
+          document.getElementById("cur-desc").style.backgroundColor = curWmo.color;
+          document.getElementById("cur-range").innerHTML = `Günün Aralığı: <span class="temp-max">▲ ${d0Max}°</span> / <span class="temp-min">▼ ${d0Min}°</span>`;
+          document.getElementById("cur-feel").textContent = `${curFeel}°C`;
+          document.getElementById("cur-humidity").textContent = `%${curHum}`;
+          document.getElementById("cur-wind").textContent = `${curWind} km/s`;
+          document.getElementById("cur-rain-chance").textContent = `%${d0Rain}`;
+
+          // 2. Saatlik Şerit (Önümüzdeki 12 saat)
+          const strip = document.getElementById("hourly-strip");
+          strip.innerHTML = "";
+          const nowHour = new Date().getHours();
+          const hourlyTimes = data.hourly.time;
+          const hourlyTemps = data.hourly.temperature_2m;
+          const hourlyWmo = data.hourly.weather_code;
+          const hourlyRain = data.hourly.precipitation_probability;
+
+          let renderedCount = 0;
+          for (let i = 0; i < hourlyTimes.length && renderedCount < 12; i++) {
+            const hDate = new Date(hourlyTimes[i]);
+            if (hDate.getHours() >= nowHour || hDate.getDate() > new Date().getDate()) {
+              const hTemp = Math.round(hourlyTemps[i]);
+              const hW = parseWmo(hourlyWmo[i]);
+              const hR = hourlyRain[i] || 0;
+              const hHourStr = `${String(hDate.getHours()).padStart(2, "0")}:00`;
+
+              const item = document.createElement("div");
+              item.className = "hourly-item";
+              item.innerHTML = `
+                <div class="hourly-time">${hHourStr}</div>
+                <div class="hourly-temp">${hTemp}°C</div>
+                <div class="hourly-desc" title="${hW.desc}">${hW.desc}</div>
+                <div class="hourly-rain">%${hR} yağış</div>
+              `;
+              strip.appendChild(item);
+              renderedCount++;
+            }
+          }
+
+          // 3. 5 Günlük Kaydırmalı Kartlar
+          const grid = document.getElementById("forecast-grid");
+          grid.innerHTML = "";
+          const daily = data.daily;
+
+          for (let i = 0; i < daily.time.length; i++) {
+            const dateStr = daily.time[i];
+            const dObj = new Date(dateStr + "T00:00:00");
+            const gIdx = dObj.getDay();
+            const dayTitle = i === 0 ? "Bugün" : (i === 1 ? "Yarın" : GUNLER[gIdx]);
+            const shortDate = `${dObj.getDate()} ${AYLAR_KISA[dObj.getMonth()]}`;
+            const wmo = parseWmo(daily.weather_code[i]);
+            const maxT = Math.round(daily.temperature_2m_max[i]);
+            const minT = Math.round(daily.temperature_2m_min[i]);
+            const rainP = daily.precipitation_probability_max[i] || 0;
+            const windM = Math.round(daily.wind_speed_10m_max[i] || 0);
+
+            const card = document.createElement("div");
+            card.className = "daily-card";
+            card.innerHTML = `
+              <div>
+                <div class="daily-day-title">${dayTitle}</div>
+                <div class="daily-date-sub">${shortDate}</div>
+              </div>
+              <div class="daily-condition-tag" style="background-color: ${wmo.color};">
+                ${wmo.desc}
+              </div>
+              <div class="daily-temps-box">
+                <span class="temp-max">▲ ${maxT}°</span>
+                <span class="temp-min">▼ ${minT}°</span>
+              </div>
+              <div class="daily-sub-metrics">
+                <div class="daily-rain-box">Yağış: %${rainP}</div>
+                <div class="daily-wind-box">Rüzgar: ${windM} km/s</div>
+              </div>
+            `;
+            grid.appendChild(card);
+          }
+        } catch (err) {
+          console.error("Hava durumu detayları alınamadı:", err);
+          document.getElementById("forecast-grid").innerHTML = 
+            '<div style="text-align:center; padding: 20px; font-weight: bold;">Hava durumu şu an yüklenemedi. Lütfen daha sonra tekrar deneyin.</div>';
+        }
+      }
+
+      fetchWeatherDetails();
+    });
+  </script>
+</body>
+
+</html>

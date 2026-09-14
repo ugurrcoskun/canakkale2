@@ -25,9 +25,32 @@
       padding: 20px;
     }
 
+    /* Geri Dön Butonu */
+    .back-btn {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 1.05em;
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+      background-color: #f0f0f0;
+      border: 2px solid black;
+      border-radius: 6px;
+      padding: 8px 16px;
+      box-shadow: 2px 2px 0px black;
+      margin-bottom: 18px;
+      transition: all 0.15s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #8d9cf4;
+      transform: translate(-1px, -1px);
+    }
+
     h2 {
       text-align: center;
       font-size: 1.8em;
+      font-weight: bold;
       margin-bottom: 20px;
     }
 
@@ -153,17 +176,18 @@
     th {
       background-color: #8d9cf4;
       color: black;
-      font-size: 1.25em;
+      font-size: 1.35em;
       font-weight: bold;
-      padding: 12px 16px;
+      padding: 14px 18px;
       letter-spacing: 0.5px;
     }
 
     td {
-      font-size: 1.05em;
-      padding: 12px 14px;
-      line-height: 1.4;
-      color: #111;
+      font-size: 1.25em;
+      font-weight: bold;
+      padding: 14px 18px;
+      line-height: 1.45;
+      color: #000;
     }
 
     td:first-child {
@@ -299,9 +323,9 @@
       border: 3px solid black;
       background-color: #f8f8f8;
       border-radius: 8px;
-      padding: 14px 20px;
+      padding: 16px 20px;
       width: 100%;
-      max-width: 480px;
+      max-width: 520px;
       margin: 0 auto;
       min-height: 80px;
       display: flex;
@@ -312,14 +336,15 @@
     }
 
     .clock-details-title {
-      font-size: 1.25em;
+      font-size: 1.35em;
       font-weight: bold;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .clock-details-meta {
-      font-size: 1.1em;
-      color: #333;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #222;
     }
 
     .clock-legend-list {
@@ -365,20 +390,25 @@
     .tum-ders-link {
       display: block;
       text-align: center;
-      font-size: 1.2em;
-      margin: 20px auto 30px auto;
+      font-family: monospace;
+      font-size: 1.25em;
+      font-weight: bold;
+      margin: 24px auto 36px auto;
       width: fit-content;
-      padding: 10px 20px;
+      padding: 14px 26px;
       color: black;
       text-decoration: none;
-      border: 2px solid black;
+      border: 3px solid black;
       border-radius: 8px;
-      background-color: #f0f0f0;
-      transition: background-color 0.3s ease;
+      background-color: #8d9cf4;
+      box-shadow: 3px 3px 0px black;
+      transition: all 0.15s ease;
     }
 
     .tum-ders-link:hover {
-      background-color: #ddd;
+      background-color: #7b8ae0;
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px black;
     }
 
     @media (max-width: 768px) {
@@ -416,15 +446,15 @@
       }
 
       th {
-        font-size: 1.05em;
-        padding: 8px 6px;
+        font-size: 1.15em;
+        padding: 10px 8px;
         border-right-width: 4px;
         border-bottom-width: 4px;
       }
 
       td {
-        font-size: 0.88em;
-        padding: 8px 6px;
+        font-size: 1.05em;
+        padding: 10px 8px;
         border-right-width: 4px;
         border-bottom-width: 4px;
       }
@@ -472,11 +502,11 @@
       }
 
       .clock-details-title {
-        font-size: 1.15em;
+        font-size: 1.2em;
       }
 
       .clock-details-meta {
-        font-size: 0.9em;
+        font-size: 1.05em;
       }
 
       .legend-chip {
@@ -484,10 +514,11 @@
         padding: 6px 10px;
       }
 
-
       .tum-ders-link {
-        font-size: 1em;
-        padding: 10px 16px;
+        font-size: 1.1em;
+        padding: 12px 18px;
+        width: 100%;
+        max-width: 400px;
       }
     }
   </style>
@@ -495,6 +526,7 @@
 
 <body>
   <div class="container">
+    <a href="okul.html" class="back-btn">‹ Okul</a>
     <h2>4. Sınıf Ders Programı</h2>
 
     <!-- Açılır Kapanır Şube Seçici -->

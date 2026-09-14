@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Çanakkale Portalı</title>
+  <title>Çanakkale</title>
 
-  <!-- İkon Dosyasını Tanımlama -->
+  <!-- İkon Dosyası Tanımlamaları -->
   <link rel="icon" href="icons/icon.png" type="image/png" />
   <link rel="apple-touch-icon" sizes="192x192" href="icons/icon.png" />
   <link rel="manifest" href="/manifest.json" />
@@ -23,132 +23,432 @@
       padding: 0;
       color: black;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       overflow-x: hidden;
       -webkit-tap-highlight-color: transparent;
     }
 
     .container {
       width: 100%;
-      max-width: 540px;
-      padding: 20px;
+      max-width: 1080px;
+      padding: 24px 16px 40px;
       margin: 0 auto;
     }
 
-    /* Hava Durumu Bandı (Retro Brutalist) */
-    .weather-widget {
-      background-color: #8d9cf4;
-      border: 3px solid black;
-      border-radius: 8px;
-      padding: 10px 18px;
-      margin-bottom: 22px;
+    /* Üst Hero Banner */
+    .hero-banner {
+      border: 7px solid black;
+      background-color: #d3d3d3;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 4px 4px 0px black;
+    }
+
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Truva Atı Rozeti */
+    .truva-wrapper {
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+      border: 4px solid black;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #f8f8f8;
+      box-shadow: 3px 3px 0px black;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      box-shadow: 3px 3px 0px black;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .truva-wrapper:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px black;
+    }
+
+    .truva-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-title-wrap h1 {
+      margin: 0 0 6px 0;
+      font-size: 2em;
       font-weight: bold;
+      letter-spacing: 0.5px;
+      color: black;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 8px 0;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .hero-live-date {
+      display: inline-block;
+      font-size: 0.95em;
+      font-weight: bold;
+      background-color: #8d9cf4;
+      border: 2px solid black;
+      border-radius: 6px;
+      padding: 4px 10px;
+    }
+
+    /* Canlı Hava Durumu Mini Kartı (Hero İçi) */
+    .live-weather-card {
+      background-color: #f8f8f8;
+      border: 3px solid black;
+      border-radius: 8px;
+      padding: 12px 18px;
+      min-width: 220px;
+      text-align: right;
+      box-shadow: 2px 2px 0px black;
       opacity: 0;
       transition: opacity 0.4s ease;
     }
 
-    .weather-widget.loaded {
+    .live-weather-card.loaded {
       opacity: 1;
     }
 
-    .weather-temp {
-      font-size: 1.25em;
+    .live-temp-badge {
+      font-size: 2em;
+      font-weight: bold;
+      line-height: 1.1;
+      color: black;
     }
 
-    .weather-desc {
+    .live-condition-badge {
       font-size: 1.05em;
-      border-left: 2px solid black;
-      padding-left: 12px;
+      font-weight: bold;
+      margin: 4px 0;
+      color: #222;
     }
 
-    /* Ana Kutu */
+    .live-meta-badge {
+      font-size: 0.9em;
+      font-weight: bold;
+      color: #555;
+    }
+
+    /* Ana Grid Düzeni */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    /* Retro Kutu Kapsayıcısı */
     .box-container {
       border: 7px solid black;
       background-color: #d3d3d3;
-      padding: 28px 24px;
+      padding: 22px;
       border-radius: 12px;
-      text-align: center;
+      box-shadow: 4px 4px 0px black;
+      display: flex;
+      flex-direction: column;
     }
 
     .box-header {
       margin-top: 0;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       background-color: #8d9cf4;
       color: black;
-      padding: 14px;
+      padding: 12px 16px;
       text-align: center;
       border: 4px solid black;
-      font-size: 1.5em;
+      font-size: 1.35em;
+      font-weight: bold;
       border-radius: 8px;
       letter-spacing: 0.5px;
     }
 
-    .menu-list {
+    /* Ana Bağlantı Kartları (Sol Kolon) */
+    .nav-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
+      margin-bottom: 22px;
     }
 
-    .menu-btn {
-      font-family: monospace;
-      font-size: 1.25em;
-      font-weight: bold;
-      padding: 16px 22px;
-      background-color: #f0f0f0;
+    .nav-card {
+      display: block;
+      background-color: #f8f8f8;
       border: 3px solid black;
       border-radius: 8px;
+      padding: 16px 18px;
       color: black;
       text-decoration: none;
       box-shadow: 3px 3px 0px black;
       transition: all 0.15s ease;
-      display: block;
-      text-align: center;
     }
 
-    .menu-btn:hover {
+    .nav-card:hover {
       background-color: #8d9cf4;
       transform: translate(-2px, -2px);
       box-shadow: 5px 5px 0px black;
     }
 
-    .menu-btn:active {
+    .nav-card:active {
       transform: translate(1px, 1px);
       box-shadow: 1px 1px 0px black;
     }
 
-    @media (max-width: 600px) {
+    .nav-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .nav-card-title {
+      font-size: 1.25em;
+      font-weight: bold;
+    }
+
+    .nav-card-arrow {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .nav-card-desc {
+      font-size: 0.95em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Kısayol Rozetleri */
+    .shortcut-section-title {
+      font-size: 1.05em;
+      font-weight: bold;
+      margin-bottom: 12px;
+      border-bottom: 2px solid black;
+      padding-bottom: 6px;
+    }
+
+    .shortcut-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .shortcut-chip {
+      font-size: 0.92em;
+      font-weight: bold;
+      padding: 8px 12px;
+      background-color: #f0f0f0;
+      border: 2px solid black;
+      border-radius: 6px;
+      color: black;
+      text-decoration: none;
+      box-shadow: 2px 2px 0px black;
+      transition: all 0.15s ease;
+      display: inline-block;
+    }
+
+    .shortcut-chip:hover {
+      background-color: #8d9cf4;
+      transform: translate(-1px, -1px);
+    }
+
+    /* Günün Hava Durumu Kısa Kartı (Sağ Kolon) */
+    .today-summary-box {
+      background-color: #f8f8f8;
+      border: 4px solid black;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 3px 3px 0px black;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .today-summary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 2px solid black;
+      padding-bottom: 10px;
+    }
+
+    .today-summary-title {
+      font-size: 1.25em;
+      font-weight: bold;
+    }
+
+    .today-summary-condition {
+      font-size: 1.1em;
+      font-weight: bold;
+      background-color: #8d9cf4;
+      border: 2px solid black;
+      border-radius: 6px;
+      padding: 4px 12px;
+    }
+
+    .today-main-display {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .today-big-temp {
+      font-size: 3.2em;
+      font-weight: bold;
+      line-height: 1;
+      color: black;
+    }
+
+    .today-range-badge {
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .temp-high {
+      color: #b91c1c;
+    }
+
+    .temp-low {
+      color: #1d4ed8;
+      margin-left: 4px;
+    }
+
+    .today-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .metric-cell {
+      background-color: #efefef;
+      border: 2px solid black;
+      border-radius: 6px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .metric-val {
+      font-size: 1.3em;
+      font-weight: bold;
+      display: block;
+      color: black;
+    }
+
+    .metric-label {
+      font-size: 0.85em;
+      font-weight: bold;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    /* Detaylı Sayfaya Geçiş Butonu */
+    .weather-detail-btn {
+      display: block;
+      text-align: center;
+      font-family: monospace;
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 16px 20px;
+      background-color: #8d9cf4;
+      color: black;
+      border: 3px solid black;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 3px 3px 0px black;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .weather-detail-btn:hover {
+      background-color: #7b8ae0;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px black;
+    }
+
+    .weather-detail-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px black;
+    }
+
+    .weather-preview-tip {
+      font-size: 0.9em;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.4;
+    }
+
+    /* Mobil Uyumluluk */
+    @media (max-width: 860px) {
       .container {
-        padding: 14px 10px;
+        padding: 14px 10px 30px;
+      }
+
+      .hero-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+        gap: 14px;
+        border-width: 5px;
+      }
+
+      .hero-brand {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hero-title-wrap h1 {
+        font-size: 1.6em;
+      }
+
+      .live-weather-card {
+        width: 100%;
+        text-align: center;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
 
       .box-container {
         border-width: 5px;
-        border-radius: 10px;
-        padding: 20px 14px;
+        padding: 16px 12px;
       }
 
       .box-header {
-        font-size: 1.3em;
-        padding: 12px;
+        font-size: 1.2em;
+        padding: 10px;
         border-width: 3px;
       }
 
-      .menu-btn {
-        font-size: 1.1em;
-        padding: 14px 18px;
+      .today-big-temp {
+        font-size: 2.6em;
       }
 
-      .weather-widget {
-        font-size: 0.95em;
-        padding: 8px 12px;
+      .weather-detail-btn {
+        font-size: 1.05em;
+        padding: 12px 14px;
       }
     }
   </style>
@@ -156,61 +456,198 @@
 
 <body>
   <div class="container">
-    <!-- Hava Durumu Widget -->
-    <div class="weather-widget" id="weather-widget">
-      <span class="weather-temp" id="weather-temp">--°C</span>
-      <span class="weather-desc" id="weather-desc">Çanakkale Hava Durumu Yükleniyor...</span>
-    </div>
-
-    <div class="box-container">
-      <h1 class="box-header">ÇANAKKALE</h1>
-
-      <div class="menu-list">
-        <a href="sayfalar/okul.html" class="menu-btn">OKUL</a>
-        <a href="sayfalar/canakkale.html" class="menu-btn">ÇANAKKALE</a>
-        <a href="sayfalar/yemek.html" class="menu-btn">YEMEK</a>
+    <!-- Üst Hero Banner -->
+    <header class="hero-banner">
+      <div class="hero-brand">
+        <div class="truva-wrapper">
+          <img src="resimler/truva.jpg" alt="Truva Atı" class="truva-img" />
+        </div>
+        <div class="hero-title-wrap">
+          <h1>ÇANAKKALE</h1>
+          <p class="hero-subtitle">Öğrenci & Şehir Bilgi Merkezi</p>
+          <span class="hero-live-date" id="hero-live-date">Tarih yükleniyor...</span>
+        </div>
       </div>
-    </div>
+
+      <!-- Canlı Özet Hava Durumu -->
+      <div class="live-weather-card" id="live-weather-card">
+        <div class="live-temp-badge" id="live-temp">--°C</div>
+        <div class="live-condition-badge" id="live-desc">Hava Durumu Alınıyor...</div>
+        <div class="live-meta-badge" id="live-metrics">Nem: -- | Rüzgar: --</div>
+      </div>
+    </header>
+
+    <!-- Ana 2 Kolonlu Panel -->
+    <main class="dashboard-grid">
+      <!-- SOL KOLON: Navigasyon ve Kısayollar -->
+      <section class="box-container">
+        <h2 class="box-header">Hızlı Erişim</h2>
+
+        <div class="nav-list">
+          <a href="sayfalar/okul.html" class="nav-card">
+            <div class="nav-card-header">
+              <span class="nav-card-title">OKUL REHBERİ</span>
+              <span class="nav-card-arrow">›</span>
+            </div>
+            <div class="nav-card-desc">Ders Programı • Sınavlar • UBYS • Zimbra</div>
+          </a>
+
+          <a href="sayfalar/canakkale.html" class="nav-card">
+            <div class="nav-card-header">
+              <span class="nav-card-title">ÇANAKKALE ŞEHİR</span>
+              <span class="nav-card-arrow">›</span>
+            </div>
+            <div class="nav-card-desc">Otobüs Saatleri • Belediye • Etkinlikler</div>
+          </a>
+
+          <a href="sayfalar/yemek.html" class="nav-card">
+            <div class="nav-card-header">
+              <span class="nav-card-title">YEMEK MENÜSÜ</span>
+              <span class="nav-card-arrow">›</span>
+            </div>
+            <div class="nav-card-desc">Günlük ÖSEM ve KYK Menü Listesi</div>
+          </a>
+        </div>
+
+        <!-- Popüler Kısayollar -->
+        <div class="shortcut-section-title">Popüler Kısayollar</div>
+        <div class="shortcut-chips-wrap">
+          <a href="sayfalar/hava-durumu.html" class="shortcut-chip">Hava Durumu (5 Gün)</a>
+          <a href="sayfalar/ders-programi.html" class="shortcut-chip">Ders Programı</a>
+          <a href="sayfalar/otobus-saatleri.html" class="shortcut-chip">Otobüs Saatleri</a>
+          <a href="sayfalar/finaller1.html" class="shortcut-chip">Sınav Takvimi</a>
+          <a href="sayfalar/kyk-foto.html" class="shortcut-chip">KYK Menü Foto</a>
+          <a href="https://ubys.comu.edu.tr/" target="_blank" rel="noopener noreferrer" class="shortcut-chip">UBYS</a>
+          <a href="https://ulasim.canakkale.bel.tr/rehber/hatlar-otobus-saatleri/" target="_blank" rel="noopener noreferrer" class="shortcut-chip">Belediye Ulaşım</a>
+        </div>
+      </section>
+
+      <!-- SAĞ KOLON: Günün Hava Durumu Kısa Bilgileri + Detay Butonu -->
+      <section class="box-container">
+        <h2 class="box-header">Günün Hava Durumu</h2>
+
+        <div class="today-summary-box">
+          <div>
+            <div class="today-summary-header">
+              <span class="today-summary-title">Çanakkale • Bugün</span>
+              <span class="today-summary-condition" id="today-condition">Yükleniyor...</span>
+            </div>
+
+            <div class="today-main-display">
+              <span class="today-big-temp" id="today-big-temp">--°C</span>
+              <div class="today-range-badge">
+                <div>Günün Değerleri</div>
+                <div id="today-temp-range"><span class="temp-high">▲ --°</span> / <span class="temp-low">▼ --°</span></div>
+              </div>
+            </div>
+
+            <div class="today-metrics-grid">
+              <div class="metric-cell">
+                <span class="metric-val" id="today-feel">--°C</span>
+                <span class="metric-label">Hissedilen</span>
+              </div>
+              <div class="metric-cell">
+                <span class="metric-val" id="today-humidity">%--</span>
+                <span class="metric-label">Bağıl Nem</span>
+              </div>
+              <div class="metric-cell">
+                <span class="metric-val" id="today-wind">-- km/s</span>
+                <span class="metric-label">Rüzgar Hızı</span>
+              </div>
+              <div class="metric-cell">
+                <span class="metric-val" id="today-rain-prob">%--</span>
+                <span class="metric-label">Yağış İhtimali</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="sayfalar/hava-durumu.html" class="weather-detail-btn">
+              5 Günlük Detaylı Hava Durumu ›
+            </a>
+
+            <div class="weather-preview-tip">
+              • Saatlik hava akışı, gün gün rüzgar ve yağış tahminleri için tıklayın.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Hava Durumu Çekme (Çanakkale: 40.1553° K, 26.4082° D)
-      async function fetchWeather() {
+      const GUNLER = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+      const AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+
+      function updateLiveDate() {
+        const now = new Date();
+        const gun = now.getDate();
+        const ay = AYLAR[now.getMonth()];
+        const yil = now.getFullYear();
+        const gunAdi = GUNLER[now.getDay()];
+        const el = document.getElementById("hero-live-date");
+        if (el) {
+          el.textContent = `${gun} ${ay} ${yil} • ${gunAdi}`;
+        }
+      }
+      updateLiveDate();
+
+      function parseWmoCode(code) {
+        if (code === 0) return { desc: "Açık", color: "#fef08a" };
+        if (code === 1) return { desc: "Az Bulutlu", color: "#e0e7ff" };
+        if (code === 2) return { desc: "Parçalı Bulutlu", color: "#c7d2fe" };
+        if (code === 3) return { desc: "Çok Bulutlu", color: "#e2e8f0" };
+        if (code >= 45 && code <= 48) return { desc: "Sisli", color: "#cbd5e1" };
+        if (code >= 51 && code <= 57) return { desc: "Çiseleme", color: "#bfdbfe" };
+        if (code >= 61 && code <= 67) return { desc: "Yağmurlu", color: "#93c5fd" };
+        if (code >= 71 && code <= 77) return { desc: "Kar Yağışlı", color: "#e0f2fe" };
+        if (code >= 80 && code <= 82) return { desc: "Sağanak Yağış", color: "#60a5fa" };
+        if (code >= 95 && code <= 99) return { desc: "Gök Gürültülü Fırtına", color: "#fca5a5" };
+        return { desc: "Bulutlu", color: "#e2e8f0" };
+      }
+
+      async function loadTodayWeather() {
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=40.1553&longitude=26.4082&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&timezone=Europe%2FIstanbul&forecast_days=1";
+
         try {
-          const url = "https://api.open-meteo.com/v1/forecast?latitude=40.1553&longitude=26.4082&current=temperature_2m,weather_code&timezone=Europe%2FIstanbul";
           const res = await fetch(url);
-          if (!res.ok) throw new Error("Weather API hatası");
+          if (!res.ok) throw new Error("API hatası: " + res.status);
           const data = await res.json();
 
-          const temp = Math.round(data.current.temperature_2m);
-          const code = data.current.weather_code;
+          const cur = data.current;
+          const curWmo = parseWmoCode(cur.weather_code);
+          const curTemp = Math.round(cur.temperature_2m);
+          const curFeel = Math.round(cur.apparent_temperature);
+          const curHumidity = cur.relative_humidity_2m;
+          const curWind = Math.round(cur.wind_speed_10m);
 
-          let desc = "Güneşli";
+          const daily = data.daily;
+          const todayMax = Math.round(daily.temperature_2m_max[0]);
+          const todayMin = Math.round(daily.temperature_2m_min[0]);
+          const todayRain = daily.precipitation_probability_max[0] || 0;
 
-          if (code === 1 || code === 2) { desc = "Parçalı Bulutlu"; }
-          else if (code === 3) { desc = "Çok Bulutlu"; }
-          else if (code >= 45 && code <= 48) { desc = "Sisli"; }
-          else if (code >= 51 && code <= 67) { desc = "Yağmurlu"; }
-          else if (code >= 71 && code <= 77) { desc = "Kar Yağışlı"; }
-          else if (code >= 80 && code <= 82) { desc = "Sağanak Yağışlı"; }
-          else if (code >= 95 && code <= 99) { desc = "Fırtınalı"; }
+          // Hero kartı
+          document.getElementById("live-temp").textContent = `${curTemp}°C`;
+          document.getElementById("live-desc").textContent = curWmo.desc;
+          document.getElementById("live-metrics").textContent = `Nem: %${curHumidity} • Rüzgar: ${curWind} km/s`;
+          document.getElementById("live-weather-card").classList.add("loaded");
 
-          const hour = new Date().getHours();
-          if ((hour >= 19 || hour <= 6) && code === 0) { desc = "Açık"; }
-          else if ((hour >= 19 || hour <= 6) && (code === 1 || code === 2)) { desc = "Parçalı Bulutlu"; }
-
-          document.getElementById("weather-temp").textContent = temp + "°C";
-          document.getElementById("weather-desc").textContent = "Çanakkale • " + desc;
-          document.getElementById("weather-widget").classList.add("loaded");
-        } catch (e) {
-          console.error("Hava durumu çekilemedi:", e);
-          document.getElementById("weather-desc").textContent = "Çanakkale";
-          document.getElementById("weather-widget").classList.add("loaded");
+          // Sağ kolon Günün Özeti
+          document.getElementById("today-condition").textContent = curWmo.desc;
+          document.getElementById("today-condition").style.backgroundColor = curWmo.color;
+          document.getElementById("today-big-temp").textContent = `${curTemp}°C`;
+          document.getElementById("today-temp-range").innerHTML = `<span class="temp-high">▲ ${todayMax}°</span> / <span class="temp-low">▼ ${todayMin}°</span>`;
+          document.getElementById("today-feel").textContent = `${curFeel}°C`;
+          document.getElementById("today-humidity").textContent = `%${curHumidity}`;
+          document.getElementById("today-wind").textContent = `${curWind} km/s`;
+          document.getElementById("today-rain-prob").textContent = `%${todayRain}`;
+        } catch (err) {
+          console.error("Hava durumu yüklenemedi:", err);
         }
       }
 
-      fetchWeather();
+      loadTodayWeather();
     });
   </script>
 </body>
