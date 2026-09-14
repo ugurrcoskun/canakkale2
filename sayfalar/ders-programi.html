@@ -119,20 +119,36 @@
     .table-container {
       overflow-x: auto;
       margin: 0 auto 50px auto;
+      border-radius: 12px;
     }
 
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       margin: 0 auto;
+      border: 7px solid black;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     th,
     td {
-      border: 7px solid black;
+      border-right: 7px solid black;
+      border-bottom: 7px solid black;
       padding: 20px;
       text-align: center;
       font-size: 1.5em;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-right: none;
+    }
+
+    tr:last-child td,
+    tr:last-child th {
+      border-bottom: none;
     }
 
     th {
@@ -156,6 +172,7 @@
       margin: 0 auto 50px auto;
       text-align: center;
       max-width: 768px;
+      border-radius: 12px;
     }
 
     .saat-container h3 {
@@ -167,6 +184,7 @@
       text-align: center;
       border: 4px solid black;
       font-size: 1.4em;
+      border-radius: 8px;
     }
 
     .saat-subtitle {
@@ -335,68 +353,7 @@
       display: inline-block;
     }
 
-    /* Slayt ve PDF */
-    .slider-container {
-      width: 100%;
-      max-width: 900px;
-      margin: 50px auto;
-      text-align: center;
-    }
-
-    .day-label {
-      margin-bottom: 10px;
-      font-size: 2em;
-      font-weight: bold;
-    }
-
-    .slides {
-      display: flex;
-      overflow: hidden;
-      width: 100%;
-      height: 400px;
-      max-height: 500px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(164, 153, 153, 0.2);
-      position: relative;
-      align-items: center;
-      justify-content: center;
-      background-color: #c6b6b6;
-    }
-
-    .slides img {
-      width: 100%;
-      height: 100%;
-      display: none;
-    }
-
-    .prev,
-    .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.3);
-      color: white;
-      border: none;
-      padding: 20px;
-      cursor: pointer;
-      font-size: 2em;
-      z-index: 1;
-      transition: background-color 0.3s ease;
-    }
-
-    .prev:hover,
-    .next:hover {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    .prev {
-      left: 0;
-    }
-
-    .next {
-      right: 0;
-    }
-
+    /* PDF */
     .pdf {
       width: 100%;
       height: 400px;
@@ -453,23 +410,31 @@
         padding: 12px 16px;
       }
 
+      table {
+        border-width: 4px;
+        border-radius: 10px;
+      }
+
       th,
       td {
         font-size: 0.9em;
         padding: 10px 6px;
-        border-width: 4px;
+        border-right-width: 4px;
+        border-bottom-width: 4px;
       }
 
       .saat-container {
         border-width: 5px;
         padding: 16px 8px;
         margin-bottom: 30px;
+        border-radius: 10px;
       }
 
       .saat-container h3 {
         font-size: 1.25em;
         padding: 10px;
         border-width: 3px;
+        border-radius: 6px;
       }
 
       .saat-subtitle {
@@ -516,20 +481,6 @@
       .legend-chip {
         font-size: 0.85em;
         padding: 6px 10px;
-      }
-
-      .day-label {
-        font-size: 1.5em;
-      }
-
-      .slides {
-        height: 250px;
-      }
-
-      .prev,
-      .next {
-        padding: 10px;
-        font-size: 1.5em;
       }
 
       .pdf {
@@ -588,6 +539,9 @@
         <tr>
           <th colspan="3">Salı</th>
         </tr>
+        <tr class="tuesday group-a empty-notice">
+          <td colspan="3" style="font-style: italic; color: #555;">Ders bulunmuyor</td>
+        </tr>
         <tr class="tuesday group-b">
           <td>Yazılım Mühendisliği (B Şubesi)</td>
           <td>A203</td>
@@ -632,18 +586,18 @@
     <!-- Dairesel Ders Saati Bölümü -->
     <div class="saat-container">
       <h3>Ders Saati Çizelgesi</h3>
-      <div class="saat-subtitle">Derslerin saat aralıklarını analog saat üzerinde görün</div>
-
       <!-- Saat Kontrolleri (Şube ve Gün Seçici) -->
       <div class="clock-controls-bar">
         <!-- Şube Seçici (A, B, Hepsi) -->
         <div class="dropdown-wrapper" id="clockGroupDropdown">
-          <button type="button" class="dropdown-toggle" id="clockGroupDropdownToggle" onclick="toggleClockGroupDropdown()">
+          <button type="button" class="dropdown-toggle" id="clockGroupDropdownToggle"
+            onclick="toggleClockGroupDropdown()">
             <span id="clockSelectedGroupText">A Şubesi</span>
             <span class="dropdown-arrow">▼</span>
           </button>
           <div class="dropdown-menu" id="clockGroupDropdownMenu">
-            <button type="button" class="dropdown-item active" data-group="A" onclick="selectGroup('A')">A Şubesi</button>
+            <button type="button" class="dropdown-item active" data-group="A" onclick="selectGroup('A')">A
+              Şubesi</button>
             <button type="button" class="dropdown-item" data-group="B" onclick="selectGroup('B')">B Şubesi</button>
             <button type="button" class="dropdown-item" data-group="HEPSI" onclick="selectGroup('HEPSI')">Hepsi</button>
           </div>
@@ -656,10 +610,13 @@
             <span class="dropdown-arrow">▼</span>
           </button>
           <div class="dropdown-menu" id="dayDropdownMenu">
-            <button type="button" class="dropdown-item active" data-day="pazartesi" onclick="selectClockDay('pazartesi')">Pazartesi</button>
+            <button type="button" class="dropdown-item active" data-day="pazartesi"
+              onclick="selectClockDay('pazartesi')">Pazartesi</button>
             <button type="button" class="dropdown-item" data-day="sali" onclick="selectClockDay('sali')">Salı</button>
-            <button type="button" class="dropdown-item" data-day="carsamba" onclick="selectClockDay('carsamba')">Çarşamba</button>
-            <button type="button" class="dropdown-item" data-day="persembe" onclick="selectClockDay('persembe')">Perşembe</button>
+            <button type="button" class="dropdown-item" data-day="carsamba"
+              onclick="selectClockDay('carsamba')">Çarşamba</button>
+            <button type="button" class="dropdown-item" data-day="persembe"
+              onclick="selectClockDay('persembe')">Perşembe</button>
             <button type="button" class="dropdown-item" data-day="cuma" onclick="selectClockDay('cuma')">Cuma</button>
           </div>
         </div>
@@ -669,12 +626,13 @@
       <div class="clock-wrapper">
         <div class="clock-row">
           <button type="button" class="clock-nav-btn" onclick="prevClockDay()" aria-label="Önceki Gün">‹</button>
-          
+
           <div class="clock-svg-box">
             <svg class="clock-svg" id="scheduleClockSvg" viewBox="0 0 380 380">
               <!-- Arka Plan Kadran -->
               <circle cx="190" cy="190" r="180" fill="#ffffff" stroke="black" stroke-width="6"></circle>
-              <circle cx="190" cy="190" r="148" fill="none" stroke="black" stroke-width="2" stroke-dasharray="3 3"></circle>
+              <circle cx="190" cy="190" r="148" fill="none" stroke="black" stroke-width="2" stroke-dasharray="3 3">
+              </circle>
               <circle cx="190" cy="190" r="82" fill="none" stroke="black" stroke-width="2"></circle>
 
               <!-- Ders Dilimleri -->
@@ -685,13 +643,17 @@
 
               <!-- Merkez Göbek -->
               <circle cx="190" cy="190" r="70" fill="#d3d3d3" stroke="black" stroke-width="3"></circle>
-              
-              <text id="centerDayTitle" x="190" y="180" text-anchor="middle" font-size="14" font-weight="bold" font-family="monospace" fill="#000000">PAZARTESİ</text>
-              <text id="centerDaySubtitle" x="190" y="202" text-anchor="middle" font-size="12" font-family="monospace" fill="#333333">3 Ders</text>
+
+              <text id="centerDayTitle" x="190" y="180" text-anchor="middle" font-size="14" font-weight="bold"
+                font-family="monospace" fill="#000000">PAZARTESİ</text>
+              <text id="centerDaySubtitle" x="190" y="202" text-anchor="middle" font-size="12" font-family="monospace"
+                fill="#333333">3 Ders</text>
 
               <!-- Akrep & Yelkovan -->
-              <line id="clockHourHand" x1="190" y1="190" x2="190" y2="135" stroke="#000" stroke-width="4" stroke-linecap="round" />
-              <line id="clockMinuteHand" x1="190" y1="190" x2="190" y2="105" stroke="#000" stroke-width="2.5" stroke-linecap="round" />
+              <line id="clockHourHand" x1="190" y1="190" x2="190" y2="135" stroke="#000" stroke-width="4"
+                stroke-linecap="round" />
+              <line id="clockMinuteHand" x1="190" y1="190" x2="190" y2="105" stroke="#000" stroke-width="2.5"
+                stroke-linecap="round" />
               <circle cx="190" cy="190" r="6" fill="#8d9cf4" stroke="black" stroke-width="2"></circle>
             </svg>
           </div>
@@ -699,7 +661,6 @@
           <button type="button" class="clock-nav-btn" onclick="nextClockDay()" aria-label="Sonraki Gün">›</button>
         </div>
 
-        <div class="swipe-hint">‹ Sola / Sağa Kaydırarak Gün Değiştirin ›</div>
 
         <!-- Seçili Ders Bilgi Kutusu -->
         <div class="clock-details-card" id="clockDetailsCard">
@@ -712,28 +673,12 @@
       </div>
     </div>
 
-    <!-- Slayt Bölümü -->
-    <div class="slider-container">
-      <div class="day-label" id="dayLabel"></div>
-      <div class="slides" id="slides">
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-
-        <img src="/resimler/dersler/pzts.png" alt="Pazartesi" />
-        <img src="/resimler/dersler/sali.png" alt="Salı" />
-        <img src="/resimler/dersler/crsb.png" alt="Çarşamba" />
-        <img src="/resimler/dersler/prsb.png" alt="Perşembe" />
-        <img src="/resimler/dersler/cuma.png" alt="Cuma" />
-
-        <button class="next" onclick="nextSlide()">&#10095;</button>
-      </div>
-    </div>
 
     <!-- PDF Görüntüleyici -->
-    <iframe class="pdf"
-      src="../778-2026-2027-guz-ders-programi-lisans-2.pdf"
-      type="application/pdf"></iframe>
+    <iframe class="pdf" src="../778-2026-2027-guz-ders-programi-lisans-2.pdf" type="application/pdf"></iframe>
 
-    <a class="tum-ders-link" href="../778-2026-2027-guz-ders-programi-lisans-2.pdf" target="_blank">PDF dosyasını görüntülemek için tıklayın</a>
+    <a class="tum-ders-link" href="../778-2026-2027-guz-ders-programi-lisans-2.pdf" target="_blank">PDF dosyasını
+      görüntülemek için tıklayın</a>
   </div>
 
   <script>
@@ -821,6 +766,7 @@
       const rowsA = document.querySelectorAll('.group-a');
       const rowsB = document.querySelectorAll('.group-b');
       const rowsOrtak = document.querySelectorAll('.group-ortak');
+      const emptyNotices = document.querySelectorAll('.empty-notice');
 
       if (group === 'A') {
         rowsA.forEach(r => r.style.display = '');
@@ -835,39 +781,13 @@
         rowsA.forEach(r => r.style.display = '');
         rowsOrtak.forEach(r => r.style.display = '');
         rowsB.forEach(r => r.style.display = '');
+        emptyNotices.forEach(r => r.style.display = 'none');
       }
 
       // Saati de yeniden çiz
       renderClock();
     }
 
-    // Slayt Mantığı
-    let currentSlide = 0;
-    const slides = document
-      .getElementById("slides")
-      .getElementsByTagName("img");
-    const dayLabel = document.getElementById("dayLabel");
-    const dayNames = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma"];
-
-    function showSlide(index) {
-      if (index >= slides.length) currentSlide = 0;
-      if (index < 0) currentSlide = slides.length - 1;
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[currentSlide].style.display = "block";
-      dayLabel.textContent = dayNames[currentSlide];
-    }
-
-    function nextSlide() {
-      currentSlide++;
-      showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-      currentSlide--;
-      showSlide(currentSlide);
-    }
 
     // Her derse özel tekil renk paleti
     const COURSE_COLORS = {
@@ -929,7 +849,7 @@
       for (let h = 1; h <= 12; h++) {
         const angle = h * 30;
         const rad = (angle - 90) * Math.PI / 180;
-        
+
         // Rakamlar
         const textR = 162;
         const tx = cx + textR * Math.cos(rad);
@@ -1075,7 +995,7 @@
           centerDayTitle.textContent = c.name;
           centerDayTitle.setAttribute('font-size', c.name.length > 15 ? '11' : '13');
           centerDaySubtitle.textContent = `${c.start} - ${c.end}`;
-          
+
           document.querySelectorAll('.legend-chip').forEach((chip, i) => {
             chip.classList.toggle('active', i === idx);
           });
@@ -1185,7 +1105,6 @@
     }
 
     window.onload = () => {
-      showSlide(currentSlide);
       // Kullanıcı isteği: default olarak A açık olsun
       selectGroup('A');
 
@@ -1195,32 +1114,6 @@
       updateClockHands();
       initClockSwipe();
     };
-
-    // Dokunmatik destek
-    let startX,
-      isDragging = false;
-    const slidesElement = document.getElementById("slides");
-
-    slidesElement.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-    });
-
-    slidesElement.addEventListener("touchmove", (e) => {
-      if (!isDragging) return;
-      const moveX = e.touches[0].clientX;
-      if (startX - moveX > 50) {
-        nextSlide();
-        isDragging = false;
-      } else if (moveX - startX > 50) {
-        prevSlide();
-        isDragging = false;
-      }
-    });
-
-    slidesElement.addEventListener("touchend", () => {
-      isDragging = false;
-    });
   </script>
 </body>
 
