@@ -15,6 +15,8 @@
       font-family: monospace;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .container {
@@ -26,9 +28,94 @@
     h2 {
       text-align: center;
       font-size: 2.5em;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
+    /* Açılır Kapanır Şube Seçici (Dropdown) */
+    .dropdown-wrapper {
+      position: relative;
+      width: fit-content;
+      margin: 0 auto 30px auto;
+      text-align: center;
+    }
+
+    .dropdown-toggle {
+      font-family: monospace;
+      font-size: 1.3em;
+      padding: 12px 28px;
+      color: black;
+      border: 3px solid black;
+      border-radius: 8px;
+      background-color: #8d9cf4;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      min-width: 200px;
+      transition: background-color 0.2s ease;
+    }
+
+    .dropdown-toggle:hover {
+      background-color: #7b8ae0;
+    }
+
+    .dropdown-arrow {
+      font-size: 0.8em;
+      transition: transform 0.2s ease;
+    }
+
+    .dropdown-wrapper.open .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      width: 100%;
+      background-color: #f0f0f0;
+      border: 3px solid black;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    .dropdown-wrapper.open .dropdown-menu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-item {
+      font-family: monospace;
+      font-size: 1.2em;
+      padding: 12px 20px;
+      border: none;
+      border-bottom: 2px solid black;
+      background-color: transparent;
+      color: black;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown-item.active {
+      background-color: #8d9cf4;
+      font-weight: bold;
+    }
+
+    /* Tablo Alanı */
     .table-container {
       overflow-x: auto;
       margin: 0 auto 50px auto;
@@ -61,6 +148,194 @@
       background-color: #d3d3d3;
     }
 
+    /* Dairesel Saat Çizelgesi */
+    .saat-container {
+      border: 7px solid black;
+      background-color: #d3d3d3;
+      padding: 24px;
+      margin: 0 auto 50px auto;
+      text-align: center;
+      max-width: 768px;
+    }
+
+    .saat-container h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      background-color: #8d9cf4;
+      color: black;
+      padding: 12px;
+      text-align: center;
+      border: 4px solid black;
+      font-size: 1.4em;
+    }
+
+    .saat-subtitle {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .clock-controls-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .clock-controls-bar .dropdown-wrapper {
+      margin-bottom: 0;
+    }
+
+    .clock-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 15px auto;
+    }
+
+    .clock-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      touch-action: pan-y;
+    }
+
+    .clock-nav-btn {
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 6px 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: monospace;
+      font-size: 2.4em;
+      font-weight: bold;
+      color: black;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.15s ease;
+      flex-shrink: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .clock-nav-btn:hover {
+      color: #8d9cf4;
+      transform: scale(1.18);
+    }
+
+    .clock-nav-btn:active {
+      transform: scale(0.9);
+      color: #7b8ae0;
+    }
+
+    .swipe-hint {
+      font-size: 0.9em;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .clock-svg-box {
+      width: 360px;
+      height: 360px;
+      max-width: 100%;
+      position: relative;
+      filter: drop-shadow(4px 4px 0px black);
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .clock-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .clock-arc {
+      cursor: pointer;
+      transition: filter 0.2s ease, transform 0.2s ease;
+      transform-origin: 190px 190px;
+    }
+
+    .clock-arc:hover {
+      filter: brightness(1.12);
+      transform: scale(1.02);
+    }
+
+    .clock-details-card {
+      border: 3px solid black;
+      background-color: #f8f8f8;
+      border-radius: 8px;
+      padding: 14px 20px;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 2px 2px 0px black;
+    }
+
+    .clock-details-title {
+      font-size: 1.25em;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .clock-details-meta {
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    .clock-legend-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      max-width: 580px;
+    }
+
+    .legend-chip {
+      background-color: #f0f0f0;
+      border: 2px solid black;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.95em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .legend-chip:hover {
+      background-color: #e0e0e0;
+    }
+
+    .legend-chip.active {
+      background-color: #8d9cf4;
+      font-weight: bold;
+    }
+
+    .legend-color-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1.5px solid black;
+      display: inline-block;
+    }
+
+    /* Slayt ve PDF */
     .slider-container {
       width: 100%;
       max-width: 900px;
@@ -134,7 +409,7 @@
       display: block;
       text-align: center;
       font-size: 1.2em;
-      margin: 30px auto;
+      margin: 20px auto 30px auto;
       width: fit-content;
       padding: 10px 20px;
       color: black;
@@ -150,15 +425,105 @@
     }
 
     @media (max-width: 768px) {
+      .container {
+        padding: 12px 10px;
+      }
+
+      h2 {
+        font-size: 1.8em;
+        margin-bottom: 16px;
+      }
+
+      .dropdown-wrapper {
+        width: 100%;
+        max-width: 280px;
+        margin-bottom: 20px;
+      }
+
+      .dropdown-toggle {
+        font-size: 1.15em;
+        padding: 12px 18px;
+        width: 100%;
+        min-width: unset;
+        justify-content: space-between;
+      }
+
+      .dropdown-item {
+        font-size: 1.1em;
+        padding: 12px 16px;
+      }
 
       th,
       td {
-        font-size: 1em;
+        font-size: 0.9em;
+        padding: 10px 6px;
+        border-width: 4px;
+      }
+
+      .saat-container {
+        border-width: 5px;
+        padding: 16px 8px;
+        margin-bottom: 30px;
+      }
+
+      .saat-container h3 {
+        font-size: 1.25em;
         padding: 10px;
+        border-width: 3px;
+      }
+
+      .saat-subtitle {
+        font-size: 0.9em;
+        margin-bottom: 14px;
+      }
+
+      .clock-controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .clock-controls-bar .dropdown-wrapper {
+        width: 100%;
+      }
+
+      .clock-controls-bar .dropdown-toggle {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .clock-svg-box {
+        width: min(320px, calc(100vw - 44px));
+        height: auto;
+        aspect-ratio: 1 / 1;
+      }
+
+      .clock-details-card {
+        padding: 12px 10px;
+        border-width: 2px;
+        min-height: 70px;
+      }
+
+      .clock-details-title {
+        font-size: 1.15em;
+      }
+
+      .clock-details-meta {
+        font-size: 0.9em;
+      }
+
+      .legend-chip {
+        font-size: 0.85em;
+        padding: 6px 10px;
       }
 
       .day-label {
         font-size: 1.5em;
+      }
+
+      .slides {
+        height: 250px;
       }
 
       .prev,
@@ -166,82 +531,188 @@
         padding: 10px;
         font-size: 1.5em;
       }
+
+      .pdf {
+        height: 320px;
+      }
+
+      .tum-ders-link {
+        font-size: 1em;
+        padding: 10px 16px;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="container">
+    <h2>4. Sınıf Ders Programı</h2>
+
+    <!-- Açılır Kapanır Şube Seçici -->
+    <div class="dropdown-wrapper" id="groupDropdown">
+      <button type="button" class="dropdown-toggle" id="dropdownToggle" onclick="toggleDropdown()">
+        <span id="selectedGroupText">A Şubesi</span>
+        <span class="dropdown-arrow">▼</span>
+      </button>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <button type="button" class="dropdown-item active" data-group="A" onclick="selectGroup('A')">A Şubesi</button>
+        <button type="button" class="dropdown-item" data-group="B" onclick="selectGroup('B')">B Şubesi</button>
+        <button type="button" class="dropdown-item" data-group="HEPSI" onclick="selectGroup('HEPSI')">Hepsi</button>
+      </div>
+    </div>
+
+    <!-- Ders Tablosu -->
     <div class="table-container">
       <table>
+        <!-- PAZARTESİ -->
         <tr>
-          <th colspan="4">Pazartesi</th>
+          <th colspan="3">Pazartesi</th>
         </tr>
-        <tr class="monday">
-          <td>Görsel Programlama</td>
-          <td>Lab 1</td>
+        <tr class="monday group-a">
+          <td>Yapay Zeka (A Şubesi)</td>
+          <td>A311</td>
           <td>09:00 - 11:25</td>
         </tr>
-        <tr class="monday">
-          <td>Ndat (B)</td>
-          <td>A203</td>
-          <td>14:00 - 17:15</td>
-        </tr>
-
-        <tr>
-          <th colspan="4">Salı</th>
-        </tr>
-        <tr class="tuesday">
-          <td>Programlanabilir Denetleyiciler</td>
-          <td>Elk. Lab</td>
-          <td>09:00 - 12:15</td>
-        </tr>
-        <tr class="tuesday">
-          <td>Formal Diller ve Otomat Teorisi</td>
-          <td>A203</td>
-          <td>13:10 - 15:35</td>
-        </tr>
-
-        <tr>
-          <th colspan="4">Çarşamba</th>
-        </tr>
-        <tr class="wednesday">
-          <td>İleri Veritabanı Sistemleri</td>
+        <tr class="monday group-ortak">
+          <td>Doğal Dil İşlemeye Giriş</td>
           <td>Lab 1</td>
-          <td>09:00 - 12:15</td>
+          <td>12:20 - 13:55</td>
         </tr>
-        <tr class="wednesday">
-          <td>Veri Haberleşmesi</td>
-          <td>Online - Teams</td>
-          <td>14:00 - 16:25</td>
-        </tr>
-
-        <tr>
-          <th colspan="4">Perşembe</th>
-        </tr>
-        <tr class="thursday">
-          <td>Ndat (A)</td>
+        <tr class="monday group-a">
+          <td>Yazılım Mühendisliği (A Şubesi)</td>
           <td>A201</td>
-          <td>14:00 - 17:15</td>
-        </tr>
-        <tr class="friday">
-          <td>Mesleki İngilizce II (B)</td>
-          <td>A203</td>
           <td>14:00 - 16:25</td>
-        </tr>
         </tr>
 
+        <!-- SALI -->
         <tr>
-          <th colspan="4">Cuma</th>
+          <th colspan="3">Salı</th>
         </tr>
-        <tr class="friday">
-          <td>Mesleki İngilizce II (A)</td>
+        <tr class="tuesday group-b">
+          <td>Yazılım Mühendisliği (B Şubesi)</td>
           <td>A203</td>
           <td>14:00 - 16:25</td>
+        </tr>
+
+        <!-- ÇARŞAMBA -->
+        <tr>
+          <th colspan="3">Çarşamba</th>
+        </tr>
+        <tr class="wednesday group-ortak">
+          <td>Görüntü İşleme</td>
+          <td>Lab 1</td>
+          <td>09:50 - 12:15</td>
+        </tr>
+        <tr class="wednesday group-b">
+          <td>Yapay Zeka (B Şubesi)</td>
+          <td>A311</td>
+          <td>15:40 - 18:05</td>
+        </tr>
+
+        <!-- PERŞEMBE -->
+        <tr>
+          <th colspan="3">Perşembe</th>
+        </tr>
+        <tr class="thursday group-ortak">
+          <td colspan="3" style="font-style: italic; color: #555;">Ders bulunmuyor</td>
+        </tr>
+
+        <!-- CUMA -->
+        <tr>
+          <th colspan="3">Cuma</th>
+        </tr>
+        <tr class="friday group-ortak">
+          <td>Doğal Dil İşlemeye Giriş</td>
+          <td>Lab 1</td>
+          <td>13:10 - 14:45</td>
         </tr>
       </table>
     </div>
 
+    <!-- Dairesel Ders Saati Bölümü -->
+    <div class="saat-container">
+      <h3>Ders Saati Çizelgesi</h3>
+      <div class="saat-subtitle">Derslerin saat aralıklarını analog saat üzerinde görün</div>
+
+      <!-- Saat Kontrolleri (Şube ve Gün Seçici) -->
+      <div class="clock-controls-bar">
+        <!-- Şube Seçici (A, B, Hepsi) -->
+        <div class="dropdown-wrapper" id="clockGroupDropdown">
+          <button type="button" class="dropdown-toggle" id="clockGroupDropdownToggle" onclick="toggleClockGroupDropdown()">
+            <span id="clockSelectedGroupText">A Şubesi</span>
+            <span class="dropdown-arrow">▼</span>
+          </button>
+          <div class="dropdown-menu" id="clockGroupDropdownMenu">
+            <button type="button" class="dropdown-item active" data-group="A" onclick="selectGroup('A')">A Şubesi</button>
+            <button type="button" class="dropdown-item" data-group="B" onclick="selectGroup('B')">B Şubesi</button>
+            <button type="button" class="dropdown-item" data-group="HEPSI" onclick="selectGroup('HEPSI')">Hepsi</button>
+          </div>
+        </div>
+
+        <!-- Gün Seçici Açılır Kapanır Menü -->
+        <div class="dropdown-wrapper" id="dayDropdown">
+          <button type="button" class="dropdown-toggle" id="dayDropdownToggle" onclick="toggleDayDropdown()">
+            <span id="selectedDayText">Pazartesi</span>
+            <span class="dropdown-arrow">▼</span>
+          </button>
+          <div class="dropdown-menu" id="dayDropdownMenu">
+            <button type="button" class="dropdown-item active" data-day="pazartesi" onclick="selectClockDay('pazartesi')">Pazartesi</button>
+            <button type="button" class="dropdown-item" data-day="sali" onclick="selectClockDay('sali')">Salı</button>
+            <button type="button" class="dropdown-item" data-day="carsamba" onclick="selectClockDay('carsamba')">Çarşamba</button>
+            <button type="button" class="dropdown-item" data-day="persembe" onclick="selectClockDay('persembe')">Perşembe</button>
+            <button type="button" class="dropdown-item" data-day="cuma" onclick="selectClockDay('cuma')">Cuma</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saat ve Bilgi Alanı -->
+      <div class="clock-wrapper">
+        <div class="clock-row">
+          <button type="button" class="clock-nav-btn" onclick="prevClockDay()" aria-label="Önceki Gün">‹</button>
+          
+          <div class="clock-svg-box">
+            <svg class="clock-svg" id="scheduleClockSvg" viewBox="0 0 380 380">
+              <!-- Arka Plan Kadran -->
+              <circle cx="190" cy="190" r="180" fill="#ffffff" stroke="black" stroke-width="6"></circle>
+              <circle cx="190" cy="190" r="148" fill="none" stroke="black" stroke-width="2" stroke-dasharray="3 3"></circle>
+              <circle cx="190" cy="190" r="82" fill="none" stroke="black" stroke-width="2"></circle>
+
+              <!-- Ders Dilimleri -->
+              <g id="clockArcsGroup"></g>
+
+              <!-- Kadran Rakam ve Çizgileri -->
+              <g id="clockDialGroup"></g>
+
+              <!-- Merkez Göbek -->
+              <circle cx="190" cy="190" r="70" fill="#d3d3d3" stroke="black" stroke-width="3"></circle>
+              
+              <text id="centerDayTitle" x="190" y="180" text-anchor="middle" font-size="14" font-weight="bold" font-family="monospace" fill="#000000">PAZARTESİ</text>
+              <text id="centerDaySubtitle" x="190" y="202" text-anchor="middle" font-size="12" font-family="monospace" fill="#333333">3 Ders</text>
+
+              <!-- Akrep & Yelkovan -->
+              <line id="clockHourHand" x1="190" y1="190" x2="190" y2="135" stroke="#000" stroke-width="4" stroke-linecap="round" />
+              <line id="clockMinuteHand" x1="190" y1="190" x2="190" y2="105" stroke="#000" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="190" cy="190" r="6" fill="#8d9cf4" stroke="black" stroke-width="2"></circle>
+            </svg>
+          </div>
+
+          <button type="button" class="clock-nav-btn" onclick="nextClockDay()" aria-label="Sonraki Gün">›</button>
+        </div>
+
+        <div class="swipe-hint">‹ Sola / Sağa Kaydırarak Gün Değiştirin ›</div>
+
+        <!-- Seçili Ders Bilgi Kutusu -->
+        <div class="clock-details-card" id="clockDetailsCard">
+          <div class="clock-details-title" id="clockDetailsTitle">Ders dilimine tıklayın</div>
+          <div class="clock-details-meta" id="clockDetailsMeta">Saat ve derslik bilgisi burada gösterilir</div>
+        </div>
+
+        <!-- Lejant Listesi -->
+        <div class="clock-legend-list" id="clockLegendList"></div>
+      </div>
+    </div>
+
+    <!-- Slayt Bölümü -->
     <div class="slider-container">
       <div class="day-label" id="dayLabel"></div>
       <div class="slides" id="slides">
@@ -257,15 +728,120 @@
       </div>
     </div>
 
-    <!-- PDF Görüntüleyici - Birden fazla seçenek -->
+    <!-- PDF Görüntüleyici -->
     <iframe class="pdf"
-      src="https://cdn.comu.edu.tr/cms/muhendislik.ce/files/738-2025-2026-bahar-ders-programi-lisans-programi-2.pdf"
+      src="../778-2026-2027-guz-ders-programi-lisans-2.pdf"
       type="application/pdf"></iframe>
 
-    <a class="tum-ders-link" href="/resimler/dersler/tum-dersler.pdf">PDF dosyasını görüntülemek için tıklayın</a>
+    <a class="tum-ders-link" href="../778-2026-2027-guz-ders-programi-lisans-2.pdf" target="_blank">PDF dosyasını görüntülemek için tıklayın</a>
   </div>
 
   <script>
+    // Açılır-Kapanır Menü Mantığı (Şube - Tablo)
+    function toggleDropdown() {
+      const dropdown = document.getElementById('groupDropdown');
+      if (dropdown) {
+        dropdown.classList.toggle('open');
+      }
+    }
+
+    // Açılır-Kapanır Menü Mantığı (Şube - Saat)
+    function toggleClockGroupDropdown() {
+      const dropdown = document.getElementById('clockGroupDropdown');
+      if (dropdown) {
+        dropdown.classList.toggle('open');
+      }
+    }
+
+    // Açılır-Kapanır Menü Mantığı (Gün - Saat)
+    function toggleDayDropdown() {
+      const dropdown = document.getElementById('dayDropdown');
+      if (dropdown) {
+        dropdown.classList.toggle('open');
+      }
+    }
+
+    // Menü dışına tıklayınca kapatma
+    document.addEventListener('click', (e) => {
+      const groupDropdown = document.getElementById('groupDropdown');
+      if (groupDropdown && !groupDropdown.contains(e.target)) {
+        groupDropdown.classList.remove('open');
+      }
+
+      const clockGroupDropdown = document.getElementById('clockGroupDropdown');
+      if (clockGroupDropdown && !clockGroupDropdown.contains(e.target)) {
+        clockGroupDropdown.classList.remove('open');
+      }
+
+      const dayDropdown = document.getElementById('dayDropdown');
+      if (dayDropdown && !dayDropdown.contains(e.target)) {
+        dayDropdown.classList.remove('open');
+      }
+    });
+
+    let currentSelectedGroup = 'A';
+    let currentSelectedClockDay = 'pazartesi';
+
+    // Şube Değiştirme Fonksiyonu
+    function selectGroup(group) {
+      currentSelectedGroup = group;
+      let groupLabel = 'A Şubesi';
+      if (group === 'B') groupLabel = 'B Şubesi';
+      if (group === 'HEPSI') groupLabel = 'Hepsi';
+
+      const labelEl = document.getElementById('selectedGroupText');
+      if (labelEl) {
+        labelEl.textContent = groupLabel;
+      }
+
+      const clockLabelEl = document.getElementById('clockSelectedGroupText');
+      if (clockLabelEl) {
+        clockLabelEl.textContent = groupLabel;
+      }
+
+      const items = document.querySelectorAll('#groupDropdown .dropdown-item, #clockGroupDropdown .dropdown-item');
+      items.forEach(btn => {
+        if (btn.getAttribute('data-group') === group) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Seçim yapıldıktan sonra menüleri kapat
+      const dropdown = document.getElementById('groupDropdown');
+      if (dropdown) {
+        dropdown.classList.remove('open');
+      }
+      const clockDropdown = document.getElementById('clockGroupDropdown');
+      if (clockDropdown) {
+        clockDropdown.classList.remove('open');
+      }
+
+      const rowsA = document.querySelectorAll('.group-a');
+      const rowsB = document.querySelectorAll('.group-b');
+      const rowsOrtak = document.querySelectorAll('.group-ortak');
+
+      if (group === 'A') {
+        rowsA.forEach(r => r.style.display = '');
+        rowsOrtak.forEach(r => r.style.display = '');
+        rowsB.forEach(r => r.style.display = 'none');
+      } else if (group === 'B') {
+        rowsA.forEach(r => r.style.display = 'none');
+        rowsOrtak.forEach(r => r.style.display = '');
+        rowsB.forEach(r => r.style.display = '');
+      } else {
+        // Hepsi
+        rowsA.forEach(r => r.style.display = '');
+        rowsOrtak.forEach(r => r.style.display = '');
+        rowsB.forEach(r => r.style.display = '');
+      }
+
+      // Saati de yeniden çiz
+      renderClock();
+    }
+
+    // Slayt Mantığı
     let currentSlide = 0;
     const slides = document
       .getElementById("slides")
@@ -293,8 +869,331 @@
       showSlide(currentSlide);
     }
 
+    // Her derse özel tekil renk paleti
+    const COURSE_COLORS = {
+      "Yapay Zeka": "#6366f1",                // İndigo / Mavi
+      "Doğal Dil İşlemeye Giriş": "#10b981",  // Zümrüt Yeşili
+      "Yazılım Mühendisliği": "#f97316",      // Canlı Turuncu
+      "Görüntü İşleme": "#8b5cf6"             // Mor
+    };
+
+    // Ders Bilgileri Veritabanı
+    const coursesData = {
+      pazartesi: {
+        title: "Pazartesi",
+        courses: [
+          { name: "Yapay Zeka", branch: "A", start: "09:00", end: "11:25", room: "A311", color: COURSE_COLORS["Yapay Zeka"] },
+          { name: "Doğal Dil İşlemeye Giriş", branch: "Ortak", start: "12:20", end: "13:55", room: "Lab 1", color: COURSE_COLORS["Doğal Dil İşlemeye Giriş"] },
+          { name: "Yazılım Mühendisliği", branch: "A", start: "14:00", end: "16:25", room: "A201", color: COURSE_COLORS["Yazılım Mühendisliği"] }
+        ]
+      },
+      sali: {
+        title: "Salı",
+        courses: [
+          { name: "Yazılım Mühendisliği", branch: "B", start: "14:00", end: "16:25", room: "A203", color: COURSE_COLORS["Yazılım Mühendisliği"] }
+        ]
+      },
+      carsamba: {
+        title: "Çarşamba",
+        courses: [
+          { name: "Görüntü İşleme", branch: "Ortak", start: "09:50", end: "12:15", room: "Lab 1", color: COURSE_COLORS["Görüntü İşleme"] },
+          { name: "Yapay Zeka", branch: "B", start: "15:40", end: "18:05", room: "A311", color: COURSE_COLORS["Yapay Zeka"] }
+        ]
+      },
+      persembe: {
+        title: "Perşembe",
+        courses: []
+      },
+      cuma: {
+        title: "Cuma",
+        courses: [
+          { name: "Doğal Dil İşlemeye Giriş", branch: "Ortak", start: "13:10", end: "14:45", room: "Lab 1", color: COURSE_COLORS["Doğal Dil İşlemeye Giriş"] }
+        ]
+      }
+    };
+
+    function timeToDegrees(timeStr) {
+      const parts = timeStr.split(':');
+      let hours = parseInt(parts[0], 10) % 12;
+      let minutes = parseInt(parts[1], 10);
+      return (hours + minutes / 60) * 30; // 12 saat kadranı: her saat 30 derece
+    }
+
+    function initClockDial() {
+      const dialGroup = document.getElementById('clockDialGroup');
+      if (!dialGroup) return;
+      dialGroup.innerHTML = '';
+      const cx = 190, cy = 190;
+
+      // 12 Saat Rakamları ve Çizgileri
+      for (let h = 1; h <= 12; h++) {
+        const angle = h * 30;
+        const rad = (angle - 90) * Math.PI / 180;
+        
+        // Rakamlar
+        const textR = 162;
+        const tx = cx + textR * Math.cos(rad);
+        const ty = cy + textR * Math.sin(rad) + 5;
+
+        const textEl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        textEl.setAttribute('x', tx);
+        textEl.setAttribute('y', ty);
+        textEl.setAttribute('text-anchor', 'middle');
+        textEl.setAttribute('font-size', '14');
+        textEl.setAttribute('font-weight', 'bold');
+        textEl.setAttribute('font-family', 'monospace');
+        textEl.setAttribute('fill', '#000000');
+        textEl.textContent = h;
+        dialGroup.appendChild(textEl);
+
+        // Çizgiler (ticks)
+        const tickInnerR = 172;
+        const tickOuterR = 178;
+        const x1 = cx + tickInnerR * Math.cos(rad);
+        const y1 = cy + tickInnerR * Math.sin(rad);
+        const x2 = cx + tickOuterR * Math.cos(rad);
+        const y2 = cy + tickOuterR * Math.sin(rad);
+
+        const lineEl = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        lineEl.setAttribute('x1', x1);
+        lineEl.setAttribute('y1', y1);
+        lineEl.setAttribute('x2', x2);
+        lineEl.setAttribute('y2', y2);
+        lineEl.setAttribute('stroke', '#000000');
+        lineEl.setAttribute('stroke-width', '2.5');
+        dialGroup.appendChild(lineEl);
+      }
+    }
+
+    const clockDays = ['pazartesi', 'sali', 'carsamba', 'persembe', 'cuma'];
+
+    function nextClockDay() {
+      const idx = clockDays.indexOf(currentSelectedClockDay);
+      const nextIdx = (idx + 1) % clockDays.length;
+      selectClockDay(clockDays[nextIdx]);
+    }
+
+    function prevClockDay() {
+      const idx = clockDays.indexOf(currentSelectedClockDay);
+      const prevIdx = (idx - 1 + clockDays.length) % clockDays.length;
+      selectClockDay(clockDays[prevIdx]);
+    }
+
+    function selectClockDay(dayKey) {
+      currentSelectedClockDay = dayKey;
+      const items = document.querySelectorAll('#dayDropdownMenu .dropdown-item');
+      items.forEach(btn => {
+        if (btn.getAttribute('data-day') === dayKey) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const labelEl = document.getElementById('selectedDayText');
+      if (labelEl && coursesData[dayKey]) {
+        labelEl.textContent = coursesData[dayKey].title;
+      }
+
+      const dropdown = document.getElementById('dayDropdown');
+      if (dropdown) {
+        dropdown.classList.remove('open');
+      }
+
+      renderClock();
+    }
+
+    function renderClock() {
+      const dayData = coursesData[currentSelectedClockDay];
+      if (!dayData) return;
+
+      const activeCourses = dayData.courses.filter(c => {
+        if (currentSelectedGroup === 'HEPSI') return true;
+        return c.branch === currentSelectedGroup || c.branch === 'Ortak';
+      });
+
+      const arcsGroup = document.getElementById('clockArcsGroup');
+      const legendList = document.getElementById('clockLegendList');
+      const detailsTitle = document.getElementById('clockDetailsTitle');
+      const detailsMeta = document.getElementById('clockDetailsMeta');
+      const centerDayTitle = document.getElementById('centerDayTitle');
+      const centerDaySubtitle = document.getElementById('centerDaySubtitle');
+
+      if (!arcsGroup) return;
+      arcsGroup.innerHTML = '';
+      if (legendList) legendList.innerHTML = '';
+
+      centerDayTitle.textContent = dayData.title.toUpperCase();
+      centerDaySubtitle.textContent = `${activeCourses.length} Ders`;
+      detailsTitle.textContent = 'Ders dilimine tıklayın';
+      detailsMeta.textContent = `${dayData.title} günü ${activeCourses.length} ders bulunmaktadır`;
+
+      const cx = 190, cy = 190;
+      const R = 146; // dış yarıçap
+      const r = 84;  // iç yarıçap
+
+      activeCourses.forEach((c, idx) => {
+        const startDeg = timeToDegrees(c.start);
+        const endDeg = timeToDegrees(c.end);
+
+        let diff = (endDeg - startDeg + 360) % 360;
+        if (diff === 0) diff = 360;
+
+        const radStart = (startDeg - 90) * Math.PI / 180;
+        const radEnd = (endDeg - 90) * Math.PI / 180;
+
+        const x1_out = cx + R * Math.cos(radStart);
+        const y1_out = cy + R * Math.sin(radStart);
+        const x2_out = cx + R * Math.cos(radEnd);
+        const y2_out = cy + R * Math.sin(radEnd);
+
+        const x1_in = cx + r * Math.cos(radStart);
+        const y1_in = cy + r * Math.sin(radStart);
+        const x2_in = cx + r * Math.cos(radEnd);
+        const y2_in = cy + r * Math.sin(radEnd);
+
+        const largeArc = diff > 180 ? 1 : 0;
+
+        const d = `M ${x1_out} ${y1_out} A ${R} ${R} 0 ${largeArc} 1 ${x2_out} ${y2_out} L ${x2_in} ${y2_in} A ${r} ${r} 0 ${largeArc} 0 ${x1_in} ${y1_in} Z`;
+
+        const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        pathEl.setAttribute('d', d);
+        pathEl.setAttribute('fill', c.color);
+        pathEl.setAttribute('stroke', '#000000');
+        pathEl.setAttribute('stroke-width', '2.5');
+        pathEl.setAttribute('class', 'clock-arc');
+        // Tooltip (üzerine gelince açıklama)
+        const titleEl = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+        titleEl.textContent = `${c.name} (${c.start} - ${c.end}) • ${c.room}`;
+        pathEl.appendChild(titleEl);
+
+        function highlightCourse() {
+          const branchText = c.branch === 'Ortak' ? 'Ortak' : `${c.branch} Şubesi`;
+          detailsTitle.textContent = `${c.name} (${branchText})`;
+          detailsTitle.style.color = c.color;
+          detailsMeta.textContent = `Saat: ${c.start} - ${c.end} • Yer: ${c.room}`;
+          centerDayTitle.textContent = c.name;
+          centerDayTitle.setAttribute('font-size', c.name.length > 15 ? '11' : '13');
+          centerDaySubtitle.textContent = `${c.start} - ${c.end}`;
+          
+          document.querySelectorAll('.legend-chip').forEach((chip, i) => {
+            chip.classList.toggle('active', i === idx);
+          });
+        }
+
+        function resetHighlight() {
+          detailsTitle.textContent = 'Ders dilimine tıklayın';
+          detailsTitle.style.color = 'black';
+          detailsMeta.textContent = `${dayData.title} günü ${activeCourses.length} ders bulunmaktadır`;
+          centerDayTitle.textContent = dayData.title.toUpperCase();
+          centerDayTitle.setAttribute('font-size', '14');
+          centerDaySubtitle.textContent = `${activeCourses.length} Ders`;
+          document.querySelectorAll('.legend-chip').forEach(chip => chip.classList.remove('active'));
+        }
+
+        pathEl.addEventListener('mouseenter', highlightCourse);
+        pathEl.addEventListener('mouseleave', resetHighlight);
+        pathEl.addEventListener('click', highlightCourse);
+
+        arcsGroup.appendChild(pathEl);
+
+        // Lejant elemanı
+        if (legendList) {
+          const chip = document.createElement('div');
+          chip.className = 'legend-chip';
+          const branchInfo = c.branch === 'Ortak' ? 'Ortak' : `${c.branch} Şb.`;
+          chip.innerHTML = `
+            <span class="legend-color-dot" style="background-color: ${c.color};"></span>
+            <span><strong>${c.start}-${c.end}</strong> ${c.name} (${branchInfo} • ${c.room})</span>
+          `;
+          chip.addEventListener('mouseenter', highlightCourse);
+          chip.addEventListener('mouseleave', resetHighlight);
+          chip.addEventListener('click', highlightCourse);
+          legendList.appendChild(chip);
+        }
+      });
+
+      if (activeCourses.length === 0) {
+        detailsTitle.textContent = 'Bugün ders yok';
+        const branchTxt = currentSelectedGroup === 'HEPSI' ? '' : ` (${currentSelectedGroup} Şubesi)`;
+        detailsMeta.textContent = (dayData.courses.length === 0)
+          ? `${dayData.title} günü programda ders bulunmamaktadır`
+          : `Seçili şube${branchTxt} için ${dayData.title} günü ders bulunmamaktadır`;
+        centerDaySubtitle.textContent = 'Ders Yok';
+      }
+    }
+
+    function updateClockHands() {
+      const now = new Date();
+      const hours = now.getHours() % 12;
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      const hourAngle = (hours + minutes / 60) * 30;
+      const minuteAngle = (minutes + seconds / 60) * 6;
+
+      const hourHand = document.getElementById('clockHourHand');
+      const minuteHand = document.getElementById('clockMinuteHand');
+
+      if (hourHand) {
+        hourHand.setAttribute('transform', `rotate(${hourAngle}, 190, 190)`);
+      }
+      if (minuteHand) {
+        minuteHand.setAttribute('transform', `rotate(${minuteAngle}, 190, 190)`);
+      }
+    }
+    setInterval(updateClockHands, 1000);
+
+    // Saati Sola / Sağa Kaydırma (Swipe) Desteği
+    let clockStartX = 0;
+    let clockStartY = 0;
+    let clockIsDragging = false;
+
+    function initClockSwipe() {
+      const targetArea = document.querySelector('.saat-container');
+      if (!targetArea) return;
+
+      targetArea.addEventListener('touchstart', (e) => {
+        clockStartX = e.touches[0].clientX;
+        clockStartY = e.touches[0].clientY;
+        clockIsDragging = true;
+      }, { passive: true });
+
+      targetArea.addEventListener('touchmove', (e) => {
+        if (!clockIsDragging) return;
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const diffX = clockStartX - currentX;
+        const diffY = clockStartY - currentY;
+
+        // Yatay hareket dikey hareketten belirgin şekilde büyükse swipe algıla
+        if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY) * 1.2) {
+          if (diffX > 0) {
+            // Sola kaydırma -> sonraki gün
+            nextClockDay();
+          } else {
+            // Sağa kaydırma -> önceki gün
+            prevClockDay();
+          }
+          clockIsDragging = false;
+        }
+      }, { passive: true });
+
+      targetArea.addEventListener('touchend', () => {
+        clockIsDragging = false;
+      });
+    }
+
     window.onload = () => {
       showSlide(currentSlide);
+      // Kullanıcı isteği: default olarak A açık olsun
+      selectGroup('A');
+
+      // Saati başlat
+      initClockDial();
+      renderClock();
+      updateClockHands();
+      initClockSwipe();
     };
 
     // Dokunmatik destek
