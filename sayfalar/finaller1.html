@@ -1,640 +1,535 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Sınavları Takvimi</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Sınavları Takvimi — Çanakkale</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
-            padding: 20px;
-            min-height: 100vh;
-        }
+    body {
+      background-color: rgba(122, 89, 89, 0.633);
+      font-family: monospace;
+      margin: 0;
+      padding: 0;
+      color: black;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-        }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    /* Geri Dön Butonu */
+    .back-btn {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 1.05em;
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+      background-color: #f0f0f0;
+      border: 2px solid black;
+      border-radius: 6px;
+      padding: 8px 16px;
+      box-shadow: 2px 2px 0px black;
+      margin-bottom: 18px;
+      transition: all 0.15s ease;
+    }
 
-        h1 {
-            text-align: center;
-            color: white;
-            margin-bottom: 35px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+    .back-btn:hover {
+      background-color: #8d9cf4;
+      transform: translate(-1px, -1px);
+    }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5em;
-                margin-bottom: 25px;
-            }
-        }
+    /* Ana Kutular (Retro Brutalist) */
+    .box-container {
+      border: 7px solid black;
+      background-color: #d3d3d3;
+      padding: 24px;
+      margin: 0 auto 30px auto;
+      border-radius: 12px;
+    }
 
-        .calendar {
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
+    .box-header {
+      margin-top: 0;
+      margin-bottom: 16px;
+      background-color: #8d9cf4;
+      color: black;
+      padding: 12px;
+      text-align: center;
+      border: 4px solid black;
+      font-size: 1.4em;
+      border-radius: 8px;
+    }
 
-        @media (max-width: 768px) {
-            .calendar {
-                gap: 15px;
-                grid-template-columns: 1fr;
-            }
-        }
+    /* Geri Sayım Kutusu */
+    .countdown-timer {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: black;
+      text-align: center;
+      padding: 16px;
+      background-color: #f8f8f8;
+      border: 3px solid black;
+      border-radius: 8px;
+      box-shadow: 2px 2px 0px black;
+    }
 
-        .exam-card {
-            background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #505050;
-        }
+    /* Takvim Izgarası */
+    .calendar-months {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
 
-        .exam-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(180deg, #909090 0%, #505050 100%);
-        }
+    .month-title {
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
 
-        .exam-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 20px rgba(144,144,144,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
-        }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      background-color: #f0f0f0;
+      border: 3px solid black;
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 2px 2px 0px black;
+    }
 
-        .exam-date {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #505050;
-        }
+    .calendar-day-header {
+      font-weight: bold;
+      font-size: 0.85em;
+      text-align: center;
+      padding: 6px 2px;
+      border-bottom: 2px solid black;
+    }
 
-        .date-box {
-            background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
-            color: #e0e0e0;
-            padding: 10px 15px;
-            border-radius: 10px;
-            margin-right: 15px;
-            text-align: center;
-            min-width: 80px;
-            border: 1px solid #606060;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 5px rgba(0,0,0,0.5);
-        }
+    .calendar-day {
+      background: #fff;
+      border: 1.5px solid black;
+      border-radius: 6px;
+      text-align: center;
+      padding: 6px 2px;
+      font-size: 0.8em;
+      min-height: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .date-day {
-            font-size: 2em;
-            font-weight: bold;
-            line-height: 1;
-        }
+    .calendar-day.exam-day {
+      background-color: #8d9cf4;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 1px 1px 0px black;
+      transition: all 0.15s ease;
+    }
 
-        .date-month {
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
+    .calendar-day.exam-day:hover {
+      background-color: #7b8ae0;
+      transform: translate(-1px, -1px);
+    }
 
-        .day-name {
-            color: #b0b0b0;
-            font-weight: 600;
-            font-size: 1.1em;
-        }
+    .exam-tag {
+      font-size: 0.8em;
+      display: block;
+      margin-top: 2px;
+      color: #111;
+    }
 
-        .exam-time {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            color: #a0a0a0;
-        }
+    /* Sınav Kartları Izgarası */
+    .calendar {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 10px;
+    }
 
-        .exam-time::before {
-            content: '🕐';
-            margin-right: 10px;
-            font-size: 1.2em;
-        }
+    .exam-card {
+      background-color: #f8f8f8;
+      border: 4px solid black;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 3px 3px 0px black;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .exam-name {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #e0e0e0;
-            margin-bottom: 12px;
-            line-height: 1.4;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
+    .exam-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px black;
+    }
 
-        .exam-location {
-            display: flex;
-            align-items: center;
-            color: #909090;
-            font-size: 0.95em;
-        }
+    .exam-date {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid black;
+    }
 
-        .exam-location::before {
-            content: '📍';
-            margin-right: 10px;
-            font-size: 1.2em;
-        }
+    .date-box {
+      background-color: #8d9cf4;
+      border: 2px solid black;
+      border-radius: 6px;
+      padding: 4px 10px;
+      text-align: center;
+      min-width: 65px;
+    }
 
-        .back-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(145deg, #4a4a4a, #2a2a2a);
-            color: #e0e0e0;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
-            transition: all 0.3s;
-            z-index: 1000;
-            border: 1px solid #606060;
-        }
+    .date-day {
+      font-size: 1.5em;
+      font-weight: bold;
+      line-height: 1;
+    }
 
-        .back-button:hover {
-            background: linear-gradient(145deg, #5a5a5a, #3a3a3a);
-            color: #ffffff;
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.9), 0 0 15px rgba(144,144,144,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
-        }
+    .date-month {
+      font-size: 0.8em;
+      font-weight: bold;
+    }
 
-        @media (max-width: 768px) {
-            .back-button {
-                bottom: 15px;
-                right: 15px;
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-        }
+    .day-name {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
 
-        .countdown {
-            text-align: center;
-            background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
-            border: 1px solid #505050;
-        }
+    .exam-time {
+      font-size: 1.05em;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #222;
+    }
 
-        @media (max-width: 768px) {
-            .countdown {
-                padding: 15px;
-                margin-bottom: 25px;
-            }
-        }
+    .exam-name {
+      font-size: 1.15em;
+      font-weight: bold;
+      line-height: 1.35;
+      margin-bottom: 10px;
+      flex-grow: 1;
+    }
 
-        .countdown h2 {
-            color: #b0b0b0;
-            margin-bottom: 10px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
+    .exam-location {
+      font-size: 0.95em;
+      font-weight: bold;
+      color: #333;
+      border-top: 2px dashed black;
+      padding-top: 8px;
+      margin-top: auto;
+    }
 
-        .countdown-timer {
-            font-size: 2em;
-            color: #d0d0d0;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
+    /* Mobil Uyumluluk */
+    @media (max-width: 600px) {
+      .container {
+        padding: 12px 8px;
+      }
 
-        @media (max-width: 768px) {
-            .countdown-timer {
-                font-size: 1.3em;
-            }
+      .box-container {
+        border-width: 5px;
+        border-radius: 10px;
+        padding: 16px 12px;
+      }
 
-            .countdown h2 {
-                font-size: 1em;
-            }
-        }
+      .box-header {
+        font-size: 1.2em;
+        padding: 10px;
+        border-width: 3px;
+      }
 
-        .mini-calendar {
-            background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
-            border: 1px solid #505050;
-        }
+      .countdown-timer {
+        font-size: 1.1em;
+        padding: 12px;
+      }
 
-        @media (max-width: 768px) {
-            .mini-calendar {
-                padding: 15px;
-                margin-bottom: 25px;
-            }
-        }
+      .calendar-day-header {
+        font-size: 0.75em;
+      }
 
-        .mini-calendar h3 {
-            text-align: center;
-            color: #d0d0d0;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
+      .calendar-day {
+        font-size: 0.72em;
+        min-height: 40px;
+      }
 
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .calendar-day-header {
-            text-align: center;
-            color: #909090;
-            font-weight: 600;
-            padding: 8px;
-            font-size: 0.9em;
-        }
-
-        .calendar-day {
-            text-align: center;
-            padding: 10px;
-            background: #2a2a2a;
-            border-radius: 8px;
-            color: #a0a0a0;
-            font-size: 0.9em;
-            border: 1px solid #404040;
-        }
-
-        .calendar-day.exam-day {
-            background: linear-gradient(145deg, #4a4a4a, #3a3a3a);
-            color: #e0e0e0;
-            border: 1px solid #707070;
-            box-shadow: 0 0 10px rgba(144,144,144,0.2);
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .calendar-day.exam-day:hover {
-            background: linear-gradient(145deg, #5a5a5a, #4a4a4a);
-            box-shadow: 0 0 15px rgba(144,144,144,0.4);
-            transform: scale(1.05);
-        }
-
-        .calendar-day.empty {
-            background: transparent;
-            border: none;
-        }
-
-        .calendar-months {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .calendar-months {
-                grid-template-columns: 1fr;
-            }
-
-            .mini-calendar h3 {
-                font-size: 1.1em;
-                margin-bottom: 10px;
-            }
-
-            .calendar-grid {
-                gap: 3px;
-            }
-
-            .calendar-day-header {
-                padding: 5px 2px;
-                font-size: 0.75em;
-            }
-
-            .calendar-day {
-                padding: 8px 2px;
-                font-size: 0.7em;
-                border-radius: 5px;
-            }
-
-            .calendar-day span {
-                font-size: 0.65em !important;
-                display: block;
-                margin-top: 2px;
-            }
-
-            .calendar-months h4 {
-                font-size: 0.95em !important;
-            }
-
-            .swiper-slide {
-                flex: 0 0 85vw;
-                max-width: 320px;
-            }
-
-            .swiper-section h3 {
-                font-size: 1.1em;
-            }
-
-            .swiper-container {
-                padding: 15px 0;
-                margin: 0;
-            }
-
-            .swiper-wrapper {
-                gap: 10px;
-                padding: 5px 25px 5px 10px;
-            }
-            
-            .swiper-slide:last-child {
-                margin-right: 25px;
-            }
-
-            .swiper-slide .exam-card {
-                padding: 15px;
-            }
-
-            .swiper-slide .date-day {
-                font-size: 1.5em;
-            }
-
-            .swiper-slide .date-month {
-                font-size: 0.8em;
-            }
-
-            .swiper-slide .exam-name {
-                font-size: 1em;
-            }
-
-            .swiper-slide .exam-time,
-            .swiper-slide .exam-location {
-                font-size: 0.85em;
-            }
-
-            .nav-hint {
-                font-size: 0.75em;
-                margin-top: 8px;
-            }
-
-            .swiper-click-area {
-                width: 25%;
-            }
-        }
-    </style>
+      .calendar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>25-26 Final Sınavları Takvimi</h1>
-        
-        <div class="countdown">
-            <h2>İlk Sınava Kalan Süre</h2>
-            <div class="countdown-timer" id="countdown"></div>
-        </div>
+  <div class="container">
+    <a href="sinavlar.html" class="back-btn">‹ Geri</a>
 
-        <div class="mini-calendar">
-            <h3>📅 Sınav Takvimi</h3>
-            <div class="calendar-months">
-                <!-- Hafta 1: 29 Aralık - 4 Ocak -->
-                <div>
-                    <h4 style="text-align: center; color: #b0b0b0; margin-bottom: 10px;">29 Aralık - 4 Ocak</h4>
-                    <div class="calendar-grid">
-                        <div class="calendar-day-header">Pzt</div>
-                        <div class="calendar-day-header">Sal</div>
-                        <div class="calendar-day-header">Çar</div>
-                        <div class="calendar-day-header">Per</div>
-                        <div class="calendar-day-header">Cum</div>
-                        <div class="calendar-day-header">Cmt</div>
-                        <div class="calendar-day-header">Paz</div>
-                        
-                        <div class="calendar-day exam-day" title="Bilgisayar Sistemleri Güvenliği - 11:30" onclick="scrollToExam('exam-29-ara')">29 Ara<br><span style="font-size:0.7em;">BSG</span></div>
-                        <div class="calendar-day exam-day" title="İşletim Sistemleri - 11:30" onclick="scrollToExam('exam-30-ara')">30 Ara<br><span style="font-size:0.7em;">
-                            İşletim 
-                            Sis.</span></div>
-                        <div class="calendar-day exam-day" title="Veri Yönetimi ve Dosya Yapıları - 09:30" onclick="scrollToExam('exam-31-ara')">31 Ara<br><span style="font-size:0.7em;">VYDY</span></div>
-                        <div class="calendar-day">1 Oca</div>
-                        <div class="calendar-day exam-day" title="Mikro Denetleyiciler - 14:00" onclick="scrollToExam('exam-2-oca')">2 Oca<br><span style="font-size:0.7em;">Mikro</span></div>
-                        <div class="calendar-day">3 Oca</div>
-                        <div class="calendar-day">4 Oca</div>
-                    </div>
-                </div>
-                
-                <!-- Hafta 2: 5-11 Ocak -->
-                <div>
-                    <h4 style="text-align: center; color: #b0b0b0; margin-bottom: 10px;">5 - 11 Ocak</h4>
-                    <div class="calendar-grid">
-                        <div class="calendar-day-header">Pzt</div>
-                        <div class="calendar-day-header">Sal</div>
-                        <div class="calendar-day-header">Çar</div>
-                        <div class="calendar-day-header">Per</div>
-                        <div class="calendar-day-header">Cum</div>
-                        <div class="calendar-day-header">Cmt</div>
-                        <div class="calendar-day-header">Paz</div>
-                        
-                        <div class="calendar-day exam-day" title="Veri Tabanı Yönetim Sistemleri - 14:00" onclick="scrollToExam('exam-5-oca')">5 Oca<br><span style="font-size:0.7em;">VTYS</span></div>
-                        <div class="calendar-day exam-day" title="Mesleki İngilizce I - 11:30" onclick="scrollToExam('exam-6-oca')">6 Oca<br><span style="font-size:0.7em;">İngilizce</span></div>
-                        <div class="calendar-day exam-day" title="Linux ile Sistem Yönetimi (12:00) + Girişimcilik (15:00)" onclick="scrollToExam('exam-7-oca-linux')">7 Oca<br><span style="font-size:0.7em;">
-                            Linux+
-                            Gir .</span></div>
-                        <div class="calendar-day exam-day" title="Ontoloji Mühendisliği - 14:00" onclick="scrollToExam('exam-8-oca')">8 Oca<br><span style="font-size:0.7em;">Ontoloji</span></div>
-                        <div class="calendar-day exam-day" title="Veri Analizi - 10:30" onclick="scrollToExam('exam-9-oca')">9 Oca<br><span style="font-size:0.7em;">Veri Anal.</span></div>
-                        <div class="calendar-day">10 Oca</div>
-                        <div class="calendar-day">11 Oca</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="calendar">
-            <!-- 29 Aralık 2025 -->
-            <div class="exam-card" id="exam-29-ara">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">29</div>
-                        <div class="date-month">Aralık</div>
-                    </div>
-                    <div class="day-name">Pazartesi</div>
-                </div>
-                <div class="exam-time">11:30</div>
-                <div class="exam-name">Bilgisayar Sistemleri Güvenliği</div>
-                <div class="exam-location">A201 – A203</div>
-            </div>
-
-            <!-- 30 Aralık 2025 -->
-            <div class="exam-card" id="exam-30-ara">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">30</div>
-                        <div class="date-month">Aralık</div>
-                    </div>
-                    <div class="day-name">Salı</div>
-                </div>
-                <div class="exam-time">11:30</div>
-                <div class="exam-name">İşletim Sistemleri</div>
-                <div class="exam-location">A201 – A203 – Lab1</div>
-            </div>
-
-            <!-- 31 Aralık 2025 -->
-            <div class="exam-card" id="exam-31-ara">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">31</div>
-                        <div class="date-month">Aralık</div>
-                    </div>
-                    <div class="day-name">Çarşamba</div>
-                </div>
-                <div class="exam-time">09:30</div>
-                <div class="exam-name">Veri Yönetimi ve Dosya Yapıları</div>
-                <div class="exam-location">A201 – A203</div>
-            </div>
-
-            <!-- 02 Ocak 2026 -->
-            <div class="exam-card" id="exam-2-oca">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">02</div>
-                        <div class="date-month">Ocak</div>
-                    </div>
-                    <div class="day-name">Cuma</div>
-                </div>
-                <div class="exam-time">14:00</div>
-                <div class="exam-name">Mikro Denetleyiciler</div>
-                <div class="exam-location">A201 – A203</div>
-            </div>
-
-            <!-- 05 Ocak 2026 -->
-            <div class="exam-card" id="exam-5-oca">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">05</div>
-                        <div class="date-month">Ocak</div>
-                    </div>
-                    <div class="day-name">Pazartesi</div>
-                </div>
-                <div class="exam-time">14:00</div>
-                <div class="exam-name">Veri Tabanı Yönetim Sistemleri</div>
-                <div class="exam-location">A201 – A203 – Lab1</div>
-            </div>
-
-            <!-- 06 Ocak 2026 -->
-            <div class="exam-card" id="exam-6-oca">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">06</div>
-                        <div class="date-month">Ocak</div>
-                    </div>
-                    <div class="day-name">Salı</div>
-                </div>
-                <div class="exam-time">11:30</div>
-                <div class="exam-name">Mesleki İngilizce I</div>
-                <div class="exam-location">A201 – A203</div>
-            </div>
-
-            <!-- 07 Ocak 2026 - İlk Sınav -->
-            <div class="exam-card" id="exam-7-oca-linux">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">07</div>
-                        <div class="date-month">Ocak</div>
-                    </div>
-                    <div class="day-name">Çarşamba</div>
-                </div>
-                <div class="exam-time">12:00</div>
-                <div class="exam-name">Linux ile Sistem Yönetimi</div>
-                <div class="exam-location">A201 – A203 – Lab1</div>
-            </div>
-
-            <!-- 07 Ocak 2026 - İkinci Sınav -->
-            <div class="exam-card" id="exam-7-oca-girisimcilik">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">07</div>
-                        <div class="date-month">Ocak</div>
-                    </div>
-                    <div class="day-name">Çarşamba</div>
-                </div>
-                <div class="exam-time">15:00</div>
-                <div class="exam-name">Girişimcilik</div>
-                <div class="exam-location">A201 – A203 – Lab1</div>
-            </div>
-
-            <!-- 08 Ocak 2026 -->
-            <div class="exam-card" id="exam-8-oca">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">08</div>
-                        <div class="date-month">Ocak</div>
-                    </div>
-                    <div class="day-name">Perşembe</div>
-                </div>
-                <div class="exam-time">14:00</div>
-                <div class="exam-name">Ontoloji Mühendisliği</div>
-                <div class="exam-location">A201</div>
-            </div>
-
-            <!-- 09 Ocak 2026 -->
-            <div class="exam-card" id="exam-9-oca">
-                <div class="exam-date">
-                    <div class="date-box">
-                        <div class="date-day">09</div>
-                        <div class="date-month">Ocak</div>
-                    </div>
-                    <div class="day-name">Cuma</div>
-                </div>
-                <div class="exam-time">10:30</div>
-                <div class="exam-name">Veri Analizi</div>
-                <div class="exam-location">A201 – A203 – Lab1</div>
-            </div>
-        </div>
+    <!-- Geri Sayım Kutusu -->
+    <div class="box-container">
+      <h3 class="box-header">İlk Sınava Kalan Süre</h3>
+      <div class="countdown-timer" id="countdown">Hesaplanıyor...</div>
     </div>
 
-    <script>
-        // Sınav kartına scroll yapma
-        function scrollToExam(examId) {
-            const element = document.getElementById(examId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Kısa animasyon efekti
-                element.style.transform = 'scale(1.05)';
-                element.style.boxShadow = '0 20px 50px rgba(144,144,144,0.5), inset 0 1px 0 rgba(255,255,255,0.2)';
-                setTimeout(() => {
-                    element.style.transform = '';
-                    element.style.boxShadow = '';
-                }, 600);
-            }
-        }
+    <!-- Sınav Takvimi Kutusu -->
+    <div class="box-container">
+      <h3 class="box-header">Sınav Takvimi</h3>
+      <div class="calendar-months">
+        <!-- Hafta 1: 29 Aralık - 4 Ocak -->
+        <div>
+          <div class="month-title">29 Aralık - 4 Ocak</div>
+          <div class="calendar-grid">
+            <div class="calendar-day-header">Pzt</div>
+            <div class="calendar-day-header">Sal</div>
+            <div class="calendar-day-header">Çar</div>
+            <div class="calendar-day-header">Per</div>
+            <div class="calendar-day-header">Cum</div>
+            <div class="calendar-day-header">Cmt</div>
+            <div class="calendar-day-header">Paz</div>
 
-        // Geri sayım sayacı
-        function updateCountdown() {
-            const firstExam = new Date('2025-12-29T11:30:00');
-            const now = new Date();
-            const diff = firstExam - now;
+            <div class="calendar-day exam-day" title="Bilgisayar Sistemleri Güvenliği - 11:30" onclick="scrollToExam('exam-29-ara')">
+              29 Ara<span class="exam-tag">BSG</span>
+            </div>
+            <div class="calendar-day exam-day" title="İşletim Sistemleri - 11:30" onclick="scrollToExam('exam-30-ara')">
+              30 Ara<span class="exam-tag">İşletim</span>
+            </div>
+            <div class="calendar-day exam-day" title="Veri Yönetimi ve Dosya Yapıları - 09:30" onclick="scrollToExam('exam-31-ara')">
+              31 Ara<span class="exam-tag">VYDY</span>
+            </div>
+            <div class="calendar-day">1 Oca</div>
+            <div class="calendar-day exam-day" title="Mikro Denetleyiciler - 14:00" onclick="scrollToExam('exam-2-oca')">
+              2 Oca<span class="exam-tag">Mikro</span>
+            </div>
+            <div class="calendar-day">3 Oca</div>
+            <div class="calendar-day">4 Oca</div>
+          </div>
+        </div>
 
-            if (diff > 0) {
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        <!-- Hafta 2: 5-11 Ocak -->
+        <div>
+          <div class="month-title">5 - 11 Ocak</div>
+          <div class="calendar-grid">
+            <div class="calendar-day-header">Pzt</div>
+            <div class="calendar-day-header">Sal</div>
+            <div class="calendar-day-header">Çar</div>
+            <div class="calendar-day-header">Per</div>
+            <div class="calendar-day-header">Cum</div>
+            <div class="calendar-day-header">Cmt</div>
+            <div class="calendar-day-header">Paz</div>
 
-                document.getElementById('countdown').innerHTML = 
-                    `${days} Gün ${hours} Saat ${minutes} Dakika ${seconds} Saniye`;
-            } else {
-                document.getElementById('countdown').innerHTML = 'Sınavlar Başladı! 🎓';
-            }
-        }
+            <div class="calendar-day exam-day" title="Veri Tabanı Yönetim Sistemleri - 14:00" onclick="scrollToExam('exam-5-oca')">
+              5 Oca<span class="exam-tag">VTYS</span>
+            </div>
+            <div class="calendar-day exam-day" title="Mesleki İngilizce I - 11:30" onclick="scrollToExam('exam-6-oca')">
+              6 Oca<span class="exam-tag">İngilizce</span>
+            </div>
+            <div class="calendar-day exam-day" title="Linux ile Sistem Yönetimi (12:00) + Girişimcilik (15:00)" onclick="scrollToExam('exam-7-oca-linux')">
+              7 Oca<span class="exam-tag">Linux+Gir</span>
+            </div>
+            <div class="calendar-day exam-day" title="Ontoloji Mühendisliği - 14:00" onclick="scrollToExam('exam-8-oca')">
+              8 Oca<span class="exam-tag">Ontoloji</span>
+            </div>
+            <div class="calendar-day exam-day" title="Veri Analizi - 10:30" onclick="scrollToExam('exam-9-oca')">
+              9 Oca<span class="exam-tag">Veri Anal.</span>
+            </div>
+            <div class="calendar-day">10 Oca</div>
+            <div class="calendar-day">11 Oca</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    </script>
+    <!-- Sınav Kartları -->
+    <div class="box-container">
+      <h3 class="box-header">Sınav Detayları</h3>
+      <div class="calendar">
+        <!-- 29 Aralık 2025 -->
+        <div class="exam-card" id="exam-29-ara">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">29</div>
+              <div class="date-month">Aralık</div>
+            </div>
+            <div class="day-name">Pazartesi</div>
+          </div>
+          <div class="exam-time">Saat: 11:30</div>
+          <div class="exam-name">Bilgisayar Sistemleri Güvenliği</div>
+          <div class="exam-location">Yer: A201 – A203</div>
+        </div>
+
+        <!-- 30 Aralık 2025 -->
+        <div class="exam-card" id="exam-30-ara">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">30</div>
+              <div class="date-month">Aralık</div>
+            </div>
+            <div class="day-name">Salı</div>
+          </div>
+          <div class="exam-time">Saat: 11:30</div>
+          <div class="exam-name">İşletim Sistemleri</div>
+          <div class="exam-location">Yer: A201 – A203 – Lab1</div>
+        </div>
+
+        <!-- 31 Aralık 2025 -->
+        <div class="exam-card" id="exam-31-ara">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">31</div>
+              <div class="date-month">Aralık</div>
+            </div>
+            <div class="day-name">Çarşamba</div>
+          </div>
+          <div class="exam-time">Saat: 09:30</div>
+          <div class="exam-name">Veri Yönetimi ve Dosya Yapıları</div>
+          <div class="exam-location">Yer: A201 – A203</div>
+        </div>
+
+        <!-- 02 Ocak 2026 -->
+        <div class="exam-card" id="exam-2-oca">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">02</div>
+              <div class="date-month">Ocak</div>
+            </div>
+            <div class="day-name">Cuma</div>
+          </div>
+          <div class="exam-time">Saat: 14:00</div>
+          <div class="exam-name">Mikro Denetleyiciler</div>
+          <div class="exam-location">Yer: A201 – A203</div>
+        </div>
+
+        <!-- 05 Ocak 2026 -->
+        <div class="exam-card" id="exam-5-oca">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">05</div>
+              <div class="date-month">Ocak</div>
+            </div>
+            <div class="day-name">Pazartesi</div>
+          </div>
+          <div class="exam-time">Saat: 14:00</div>
+          <div class="exam-name">Veri Tabanı Yönetim Sistemleri</div>
+          <div class="exam-location">Yer: A201 – A203 – Lab1</div>
+        </div>
+
+        <!-- 06 Ocak 2026 -->
+        <div class="exam-card" id="exam-6-oca">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">06</div>
+              <div class="date-month">Ocak</div>
+            </div>
+            <div class="day-name">Salı</div>
+          </div>
+          <div class="exam-time">Saat: 11:30</div>
+          <div class="exam-name">Mesleki İngilizce I</div>
+          <div class="exam-location">Yer: A201 – A203</div>
+        </div>
+
+        <!-- 07 Ocak 2026 - İlk Sınav -->
+        <div class="exam-card" id="exam-7-oca-linux">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">07</div>
+              <div class="date-month">Ocak</div>
+            </div>
+            <div class="day-name">Çarşamba</div>
+          </div>
+          <div class="exam-time">Saat: 12:00</div>
+          <div class="exam-name">Linux ile Sistem Yönetimi</div>
+          <div class="exam-location">Yer: A201 – A203 – Lab1</div>
+        </div>
+
+        <!-- 07 Ocak 2026 - İkinci Sınav -->
+        <div class="exam-card" id="exam-7-oca-girisimcilik">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">07</div>
+              <div class="date-month">Ocak</div>
+            </div>
+            <div class="day-name">Çarşamba</div>
+          </div>
+          <div class="exam-time">Saat: 15:00</div>
+          <div class="exam-name">Girişimcilik</div>
+          <div class="exam-location">Yer: A201 – A203 – Lab1</div>
+        </div>
+
+        <!-- 08 Ocak 2026 -->
+        <div class="exam-card" id="exam-8-oca">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">08</div>
+              <div class="date-month">Ocak</div>
+            </div>
+            <div class="day-name">Perşembe</div>
+          </div>
+          <div class="exam-time">Saat: 14:00</div>
+          <div class="exam-name">Ontoloji Mühendisliği</div>
+          <div class="exam-location">Yer: A201</div>
+        </div>
+
+        <!-- 09 Ocak 2026 -->
+        <div class="exam-card" id="exam-9-oca">
+          <div class="exam-date">
+            <div class="date-box">
+              <div class="date-day">09</div>
+              <div class="date-month">Ocak</div>
+            </div>
+            <div class="day-name">Cuma</div>
+          </div>
+          <div class="exam-time">Saat: 10:30</div>
+          <div class="exam-name">Veri Analizi</div>
+          <div class="exam-location">Yer: A201 – A203 – Lab1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scrollToExam(examId) {
+      const element = document.getElementById(examId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        element.style.transform = 'translate(-3px, -3px) scale(1.02)';
+        element.style.borderColor = '#8d9cf4';
+        setTimeout(() => {
+          element.style.transform = '';
+          element.style.borderColor = 'black';
+        }, 800);
+      }
+    }
+
+    function updateCountdown() {
+      const firstExam = new Date('2025-12-29T11:30:00');
+      const now = new Date();
+      const diff = firstExam - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerHTML =
+          `${days} Gün ${hours} Saat ${minutes} Dakika ${seconds} Saniye`;
+      } else {
+        document.getElementById('countdown').innerHTML = 'Sınavlar Başladı!';
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
+
 </html>

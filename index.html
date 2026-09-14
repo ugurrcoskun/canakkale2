@@ -1,116 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Çanakkale</title>
+  <title>Çanakkale Portalı</title>
 
   <!-- İkon Dosyasını Tanımlama -->
   <link rel="icon" href="icons/icon.png" type="image/png" />
   <link rel="apple-touch-icon" sizes="192x192" href="icons/icon.png" />
   <link rel="manifest" href="/manifest.json" />
 
-  <!-- Diğer stil ve script bağlantıları -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <style>
-    /* Hava Durumu Widget Stili */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgba(122, 89, 89, 0.633);
+      font-family: monospace;
+      margin: 0;
+      padding: 0;
+      color: black;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 540px;
+      padding: 20px;
+      margin: 0 auto;
+    }
+
+    /* Hava Durumu Bandı (Retro Brutalist) */
     .weather-widget {
-      position: absolute;
-      top: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(22, 22, 22, 0.7);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 30px;
-      padding: 8px 18px;
+      background-color: #8d9cf4;
+      border: 3px solid black;
+      border-radius: 8px;
+      padding: 10px 18px;
+      margin-bottom: 22px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      color: #fff;
-      font-family: system-ui, -apple-system, sans-serif;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      z-index: 10;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 3px 3px 0px black;
+      font-weight: bold;
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.4s ease;
     }
 
     .weather-widget.loaded {
       opacity: 1;
     }
 
-    .weather-icon {
-      font-size: 20px;
-      line-height: 1;
-    }
-
     .weather-temp {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+      font-size: 1.25em;
     }
 
     .weather-desc {
-      font-size: 13px;
-      color: #ccc;
-      font-weight: 400;
-      padding-left: 6px;
-      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 1.05em;
+      border-left: 2px solid black;
+      padding-left: 12px;
+    }
+
+    /* Ana Kutu */
+    .box-container {
+      border: 7px solid black;
+      background-color: #d3d3d3;
+      padding: 28px 24px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .box-header {
+      margin-top: 0;
+      margin-bottom: 24px;
+      background-color: #8d9cf4;
+      color: black;
+      padding: 14px;
+      text-align: center;
+      border: 4px solid black;
+      font-size: 1.5em;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .menu-btn {
+      font-family: monospace;
+      font-size: 1.25em;
+      font-weight: bold;
+      padding: 16px 22px;
+      background-color: #f0f0f0;
+      border: 3px solid black;
+      border-radius: 8px;
+      color: black;
+      text-decoration: none;
+      box-shadow: 3px 3px 0px black;
+      transition: all 0.15s ease;
+      display: block;
+      text-align: center;
+    }
+
+    .menu-btn:hover {
+      background-color: #8d9cf4;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px black;
+    }
+
+    .menu-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px black;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 14px 10px;
+      }
+
+      .box-container {
+        border-width: 5px;
+        border-radius: 10px;
+        padding: 20px 14px;
+      }
+
+      .box-header {
+        font-size: 1.3em;
+        padding: 12px;
+        border-width: 3px;
+      }
+
+      .menu-btn {
+        font-size: 1.1em;
+        padding: 14px 18px;
+      }
+
+      .weather-widget {
+        font-size: 0.95em;
+        padding: 8px 12px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <img src="resimler/skule.png" alt="Çanakkale" class="background-img" loading="eager" />
+  <div class="container">
+    <!-- Hava Durumu Widget -->
+    <div class="weather-widget" id="weather-widget">
+      <span class="weather-temp" id="weather-temp">--°C</span>
+      <span class="weather-desc" id="weather-desc">Çanakkale Hava Durumu Yükleniyor...</span>
+    </div>
 
-  <!-- Hava Durumu Widget -->
-  <div class="weather-widget" id="weather-widget">
-    <div class="weather-icon" id="weather-icon">🌤️</div>
-    <div class="weather-temp" id="weather-temp">--°C</div>
-    <div class="weather-desc" id="weather-desc">Yükleniyor...</div>
-  </div>
+    <div class="box-container">
+      <h1 class="box-header">ÇANAKKALE</h1>
 
-  <div class="content">
-    <div class="background-box">
-      <a href="sayfalar/okul.html">
-        <div class="link-container">OKUL</div>
-      </a>
-      <a href="sayfalar/canakkale.html">
-        <div class="link-container">ÇANAKKALE</div>
-      </a>
-      <a href="sayfalar/yemek.html">
-        <div class="link-container">YEMEK</div>
-      </a>
+      <div class="menu-list">
+        <a href="sayfalar/okul.html" class="menu-btn">OKUL</a>
+        <a href="sayfalar/canakkale.html" class="menu-btn">ÇANAKKALE</a>
+        <a href="sayfalar/yemek.html" class="menu-btn">YEMEK</a>
+      </div>
     </div>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const linkContainers = document.querySelectorAll(".link-container");
-
-      linkContainers.forEach((container) => {
-        container.addEventListener("click", function (event) {
-          // Bağlantıyı hedefleyen a etiketini bul
-          const link = this.parentNode;
-
-          // Yönlendirmeyi durdur
-          event.preventDefault();
-
-          // Animasyon sınıfını ekle
-          this.classList.add("animate");
-
-          // 0.3 saniye sonra yönlendirme yap
-          setTimeout(() => {
-            this.classList.remove("animate");
-            window.location.href = link.href; // Bağlantıya yönlendir
-          }, 300); // 300 ms, animasyon süresi ile aynı olmalı
-        });
-      });
-
       // Hava Durumu Çekme (Çanakkale: 40.1553° K, 26.4082° D)
       async function fetchWeather() {
         try {
@@ -122,28 +186,22 @@
           const temp = Math.round(data.current.temperature_2m);
           const code = data.current.weather_code;
 
-          // WMO Hava Durumu Kodları (basitleştirilmiş)
-          let icon = "☀️";
           let desc = "Güneşli";
 
-          if (code === 1 || code === 2) { icon = "🌤️"; desc = "Parçalı Bulutlu"; }
-          else if (code === 3) { icon = "☁️"; desc = "Çok Bulutlu"; }
-          else if (code >= 45 && code <= 48) { icon = "🌫️"; desc = "Sisli"; }
-          else if (code >= 51 && code <= 67) { icon = "🌧️"; desc = "Yağmurlu"; }
-          else if (code >= 71 && code <= 77) { icon = "❄️"; desc = "Kar Yağışlı"; }
-          else if (code >= 80 && code <= 82) { icon = "🌦️"; desc = "Sağanak Yağışlı"; }
-          else if (code >= 95 && code <= 99) { icon = "⛈️"; desc = "Fırtınalı"; }
+          if (code === 1 || code === 2) { desc = "Parçalı Bulutlu"; }
+          else if (code === 3) { desc = "Çok Bulutlu"; }
+          else if (code >= 45 && code <= 48) { desc = "Sisli"; }
+          else if (code >= 51 && code <= 67) { desc = "Yağmurlu"; }
+          else if (code >= 71 && code <= 77) { desc = "Kar Yağışlı"; }
+          else if (code >= 80 && code <= 82) { desc = "Sağanak Yağışlı"; }
+          else if (code >= 95 && code <= 99) { desc = "Fırtınalı"; }
 
-          // Gece kontrolü (19:00 - 06:00 arası basit tahmin)
           const hour = new Date().getHours();
-          if ((hour >= 19 || hour <= 6) && code === 0) { icon = "🌙"; desc = "Açık"; }
-          else if ((hour >= 19 || hour <= 6) && (code === 1 || code === 2)) { icon = "☁️"; desc = "Parçalı Bulutlu"; }
+          if ((hour >= 19 || hour <= 6) && code === 0) { desc = "Açık"; }
+          else if ((hour >= 19 || hour <= 6) && (code === 1 || code === 2)) { desc = "Parçalı Bulutlu"; }
 
-          document.getElementById("weather-icon").textContent = icon;
           document.getElementById("weather-temp").textContent = temp + "°C";
-          document.getElementById("weather-desc").textContent = desc;
-
-          // Animasyonla göster
+          document.getElementById("weather-desc").textContent = "Çanakkale • " + desc;
           document.getElementById("weather-widget").classList.add("loaded");
         } catch (e) {
           console.error("Hava durumu çekilemedi:", e);
@@ -155,16 +213,6 @@
       fetchWeather();
     });
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
