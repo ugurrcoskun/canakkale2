@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-10-02T12:59:59.097144+03:00",
+  "generatedAt": "2026-10-03T12:23:48.165744+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
-    "date": "2 Ekim 2026, Cuma",
+    "date": "1 Ekim 2026, Perşembe",
     "items": [
-      "Mercimek Çorba (233)",
-      "Köri Soslu Tavuk (389)",
-      "Sebzeli Bulgur Pilavı (288)",
-      "Cacık (118)"
+      "Tarhana Çorba (194)",
+      "Hünkarbeğendi (446)",
+      "Tel Şeh.Pirinç Pilavı (345)",
+      "Ballı Balım (380)"
     ],
     "monthly": {
       "yearMonth": "2026-10",
@@ -206,28 +206,27 @@
   },
   "kyk": {
     "sourceUrl": "https://yurtmenu.net/canakkale",
-    "date": "Cuma, 2 Ekim 2026",
+    "date": "Cumartesi, 3 Ekim 2026",
     "sabah": {
-      "date": "Cuma, 2 Ekim 2026",
+      "date": "Cumartesi, 3 Ekim 2026",
       "items": [
-        "Menemen",
-        "Patates Kızartması",
-        "Çikolatalı Milföy Börek",
-        "Beyaz Peynir",
+        "Haşlanmış Yumurta",
+        "Karışık Kızartma",
+        "Simit",
+        "Kaşar Peyniri",
         "Siyah/Yeşil Zeytin",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
-      "calories": "840 kcal"
+      "calories": "650-850 kcal"
     },
     "aksam": {
-      "date": "Cuma, 2 Ekim 2026",
+      "date": "Cumartesi, 3 Ekim 2026",
       "items": [
-        "Düğün Çorba / Şafak Çorba",
-        "Kuru Fasulye / Sebze Graten",
-        "Pirinç Pilavı",
-        "Cacık",
-        "Supangle",
+        "Mercimek Çorbası / Sebze Çorbası",
+        "Çoban Kavurma / Köri Soslu Tavuk / Bezelye Yemeği",
+        "Bulgur Pilavı",
+        "Ayran",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
