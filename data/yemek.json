@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T12:23:48.165744+03:00",
+  "generatedAt": "2026-10-04T13:02:24.191608+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
     "date": "1 Ekim 2026, Perşembe",
@@ -206,27 +206,27 @@
   },
   "kyk": {
     "sourceUrl": "https://yurtmenu.net/canakkale",
-    "date": "Cumartesi, 3 Ekim 2026",
+    "date": "Pazar, 4 Ekim 2026",
     "sabah": {
-      "date": "Cumartesi, 3 Ekim 2026",
+      "date": "Pazar, 4 Ekim 2026",
       "items": [
-        "Haşlanmış Yumurta",
-        "Karışık Kızartma",
-        "Simit",
-        "Kaşar Peyniri",
+        "Sade Omlet",
+        "Salçalı Sosis",
+        "Peynirli/Ispanaklı Börek",
+        "Beyaz Peynir",
         "Siyah/Yeşil Zeytin",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
-      "calories": "650-850 kcal"
+      "calories": "879 kcal"
     },
     "aksam": {
-      "date": "Cumartesi, 3 Ekim 2026",
+      "date": "Pazar, 4 Ekim 2026",
       "items": [
-        "Mercimek Çorbası / Sebze Çorbası",
-        "Çoban Kavurma / Köri Soslu Tavuk / Bezelye Yemeği",
-        "Bulgur Pilavı",
-        "Ayran",
+        "Domates Çorba / Terbiyeli Şehriye Çorba",
+        "Tavuk Külbastı +Garnitür / Biber Dolma +Yoğurt",
+        "Spagetti Napoliten",
+        "Karışık Salata",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
