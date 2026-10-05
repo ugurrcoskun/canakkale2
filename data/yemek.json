@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-10-04T13:02:24.191608+03:00",
+  "generatedAt": "2026-10-05T13:47:13.142474+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
-    "date": "1 Ekim 2026, Perşembe",
+    "date": "5 Ekim 2026, Pazartesi",
     "items": [
-      "Tarhana Çorba (194)",
-      "Hünkarbeğendi (446)",
-      "Tel Şeh.Pirinç Pilavı (345)",
-      "Ballı Balım (380)"
+      "Ezogelin Çorba (230)",
+      "Et Döner (318) Köz Domates Biber (18)",
+      "Arpa Şehriye Pilavı (360)",
+      "Ayran (74)"
     ],
     "monthly": {
       "yearMonth": "2026-10",
@@ -160,18 +160,18 @@
           "date": "7 Ekim 2026, Çarşamba",
           "items": [
             "Mercimek Çorba (233)",
-            "Tas Kebabı (374)",
-            "Su Böreği (430)",
-            "Karışık Salata (70)"
+            "Izgara Tavuk Kanat (386) Patates Püresi (137)",
+            "Garnitürlü Pirinç Pilavı (359)",
+            "Cevizli Baklava (482)"
           ]
         },
         "2026-10-06": {
           "date": "6 Ekim 2026, Salı",
           "items": [
             "Buğday Çorba (164)",
-            "Izgara Tavuk Kanat (386) Patates Püresi (137)",
-            "Garn. Pirinç Pilavı (359)",
-            "Cevizli Baklava (482)"
+            "Tas Kebabı (374)",
+            "Su Böreği (430)",
+            "Karışık Salata (70)"
           ]
         },
         "2026-10-05": {
@@ -206,27 +206,27 @@
   },
   "kyk": {
     "sourceUrl": "https://yurtmenu.net/canakkale",
-    "date": "Pazar, 4 Ekim 2026",
+    "date": "Pazartesi, 5 Ekim 2026",
     "sabah": {
-      "date": "Pazar, 4 Ekim 2026",
+      "date": "Pazartesi, 5 Ekim 2026",
       "items": [
-        "Sade Omlet",
-        "Salçalı Sosis",
-        "Peynirli/Ispanaklı Börek",
-        "Beyaz Peynir",
+        "Haşlanmış Yumurta",
+        "Patates Kızartması",
+        "Zeytinli/Peynirli Açma",
+        "Kaşar Peyniri",
         "Siyah/Yeşil Zeytin",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
-      "calories": "879 kcal"
+      "calories": "961 kcal"
     },
     "aksam": {
-      "date": "Pazar, 4 Ekim 2026",
+      "date": "Pazartesi, 5 Ekim 2026",
       "items": [
-        "Domates Çorba / Terbiyeli Şehriye Çorba",
-        "Tavuk Külbastı +Garnitür / Biber Dolma +Yoğurt",
-        "Spagetti Napoliten",
-        "Karışık Salata",
+        "Ezogelin Çorba / Kremalı Mantar Çorba",
+        "Karnıyarık / Taze Fasulye Yemeği",
+        "Şehriyeli Pirinç Pilavı",
+        "Cacık",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
