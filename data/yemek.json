@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-10-05T13:47:13.142474+03:00",
+  "generatedAt": "2026-10-06T13:42:15.446515+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
-    "date": "5 Ekim 2026, Pazartesi",
+    "date": "6 Ekim 2026, Salı",
     "items": [
-      "Ezogelin Çorba (230)",
-      "Et Döner (318) Köz Domates Biber (18)",
-      "Arpa Şehriye Pilavı (360)",
-      "Ayran (74)"
+      "Buğday Çorba (164)",
+      "Tas Kebabı (374)",
+      "Su Böreği (430)",
+      "Karışık Salata (70)"
     ],
     "monthly": {
       "yearMonth": "2026-10",
@@ -206,27 +206,27 @@
   },
   "kyk": {
     "sourceUrl": "https://yurtmenu.net/canakkale",
-    "date": "Pazartesi, 5 Ekim 2026",
+    "date": "Salı, 6 Ekim 2026",
     "sabah": {
-      "date": "Pazartesi, 5 Ekim 2026",
+      "date": "Salı, 6 Ekim 2026",
       "items": [
-        "Haşlanmış Yumurta",
-        "Patates Kızartması",
-        "Zeytinli/Peynirli Açma",
-        "Kaşar Peyniri",
+        "Kaşarlı Omlet",
+        "Patates Salatası",
+        "Dere Otlu Poğaça",
+        "Labne Peynir",
         "Siyah/Yeşil Zeytin",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
-      "calories": "961 kcal"
+      "calories": "869 kcal"
     },
     "aksam": {
-      "date": "Pazartesi, 5 Ekim 2026",
+      "date": "Salı, 6 Ekim 2026",
       "items": [
-        "Ezogelin Çorba / Kremalı Mantar Çorba",
-        "Karnıyarık / Taze Fasulye Yemeği",
-        "Şehriyeli Pirinç Pilavı",
-        "Cacık",
+        "Tarhana Çorba / Havuç Çorba",
+        "Galeta Unlu Tavuk +Garnitür / Yeşil Mercimek Yemeği",
+        "Sebzeli Bulgur Pilavı",
+        "Kremşantili Haşhaşlı Revani",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
