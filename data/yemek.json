@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-10-06T13:42:15.446515+03:00",
+  "generatedAt": "2026-10-07T13:31:07.186403+03:00",
   "osem": {
     "sourceUrl": "https://yemek.comu.edu.tr/",
-    "date": "6 Ekim 2026, Salı",
+    "date": "7 Ekim 2026, Çarşamba",
     "items": [
-      "Buğday Çorba (164)",
-      "Tas Kebabı (374)",
-      "Su Böreği (430)",
-      "Karışık Salata (70)"
+      "Mercimek Çorba (233)",
+      "Izgara Tavuk Kanat (386) Patates Püresi (137)",
+      "Garnitürlü Pirinç Pilavı (359)",
+      "Cevizli Baklava (482)"
     ],
     "monthly": {
       "yearMonth": "2026-10",
@@ -206,27 +206,27 @@
   },
   "kyk": {
     "sourceUrl": "https://yurtmenu.net/canakkale",
-    "date": "Salı, 6 Ekim 2026",
+    "date": "Çarşamba, 7 Ekim 2026",
     "sabah": {
-      "date": "Salı, 6 Ekim 2026",
+      "date": "Çarşamba, 7 Ekim 2026",
       "items": [
-        "Kaşarlı Omlet",
-        "Patates Salatası",
-        "Dere Otlu Poğaça",
-        "Labne Peynir",
+        "Haşlanmış Yumurta",
+        "Sosis Kızartması",
+        "Peynirli/Ispanaklı Börek",
+        "Beyaz Peynir",
         "Siyah/Yeşil Zeytin",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
-      "calories": "869 kcal"
+      "calories": "884 kcal"
     },
     "aksam": {
-      "date": "Salı, 6 Ekim 2026",
+      "date": "Çarşamba, 7 Ekim 2026",
       "items": [
-        "Tarhana Çorba / Havuç Çorba",
-        "Galeta Unlu Tavuk +Garnitür / Yeşil Mercimek Yemeği",
-        "Sebzeli Bulgur Pilavı",
-        "Kremşantili Haşhaşlı Revani",
+        "Yayla Çorbası / Mercimek Çorbası",
+        "Izgara Köfte +Garnitür / Izgara Tavuk +Garnitür / Mücver +Yoğurt",
+        "Salçalı Makarna",
+        "Trileçe",
         "500 ml Su",
         "Çeyrek Ekmek"
       ],
